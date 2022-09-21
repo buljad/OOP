@@ -1,5 +1,7 @@
+package ru.nsu.izhuravskii;
+
 // Реализация пирамидальной сортировки на Java
-public class HeapSort
+public class heapsort
 {
     public void sort(int arr[])
     {
@@ -64,7 +66,7 @@ public class HeapSort
         int arr[] = {12, 11, 13, 5, 6, 7};
         int n = arr.length;
 
-        HeapSort ob = new HeapSort();
+        heapsort ob = new heapsort();
         ob.sort(arr);
 
         System.out.println("Sorted array is");
