@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1c279338-d6ba-4c7c-a118-3b927c5eb6c2" name="Changes" comment="" />
+    <list default="true" id="1c279338-d6ba-4c7c-a118-3b927c5eb6c2" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/src/test/java/ru/nsu/izhuravskii/heapsort_tests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ru/nsu/izhuravskii/heapsort_tests.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -69,16 +71,6 @@
       <updated>1663685195142</updated>
     </task>
     <servers />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/ru/nsu/izhuravskii/heapsort_tests.java</url>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -13,7 +13,7 @@ public class heapsort_tests {
         }
     }
 
-    {
+    static {
         int[] arr_correct = {0, 0, 0, 0, 0, 0};
         int[] arr_incorrect = {0, 0, 0, 0, 0, 0};
 
@@ -25,7 +25,7 @@ public class heapsort_tests {
         }
     }
 
-    {
+    static {
         int[] arr_correct = {0};
         int[] arr_incorrect = {0};
 
@@ -37,7 +37,7 @@ public class heapsort_tests {
         }
     }
 
-    {
+    static {
         int[] arr_correct = {-2, -1, 0, 1, 2, 3};
         int[] arr_incorrect = {0, -2, 1, 3, 2, -1};
 
