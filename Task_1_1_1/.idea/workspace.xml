@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1c279338-d6ba-4c7c-a118-3b927c5eb6c2" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/test/java/ru/nsu/izhuravskii/heapsort_tests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ru/nsu/izhuravskii/heapsort_tests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
