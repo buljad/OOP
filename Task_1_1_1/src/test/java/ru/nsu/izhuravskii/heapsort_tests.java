@@ -1,78 +1,90 @@
 package ru.nsu.izhuravskii;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+
 import org.junit.jupiter.api.Test;
 
-public class heapsort_tests {
+public class HeapsortTests {
 
-    //The first test with a common heapsort
+    /**
+     * The first test with a common heapsort.
+     */
+
     @Test
 
     public void first_test() {
-        int[] arr_correct = {0, 1, 2, 3, 4, 5};
-        int[] arr_incorrect = {1, 5, 0, 2, 4, 3};
+        int[] arrCorrect = {0, 1, 2, 3, 4, 5};
+        int[] arrIncorrect = {1, 5, 0, 2, 4, 3};
 
         heapsort ob = new heapsort();
-        ob.sort(arr_incorrect);
+        ob.sort(arrIncorrect);
 
-        assertArrayEquals(arr_incorrect, arr_correct);
+        assertArrayEquals(arrIncorrect, arrCorrect);
     }
 
-    //The second test with an array which consists only same elements
+    /**
+     * The second test with an array which consists only same elements.
+     */
 
     @Test
 
     public void second_test() {
 
-        int[] arr_correct = {0, 0, 0, 0, 0, 0};
-        int[] arr_incorrect = {0, 0, 0, 0, 0, 0};
+        int[] arrCorrect = {0, 0, 0, 0, 0, 0};
+        int[] arrIncorrect = {0, 0, 0, 0, 0, 0};
 
         heapsort ob = new heapsort();
-        ob.sort(arr_incorrect);
+        ob.sort(arrIncorrect);
 
-        assertArrayEquals(arr_incorrect, arr_correct);
+        assertArrayEquals(arrIncorrect, arrCorrect);
     }
 
-
-    //The third test with an array with only one element
+    /**
+     * The third test with an array with only one element.
+     */
 
     @Test
 
     public void third_test() {
 
-        int[] arr_correct = {0};
-        int[] arr_incorrect = {0};
+        int[] arrCorrect = {0};
+        int[] arrIncorrect = {0};
 
         heapsort ob = new heapsort();
-        ob.sort(arr_incorrect);
+        ob.sort(arrIncorrect);
 
-        assertArrayEquals(arr_incorrect, arr_correct);
+        assertArrayEquals(arrIncorrect, arrCorrect);
     }
 
-    //The fourth test with negative numbers
+    /**
+     * The fourth test with negative numbers.
+     */
 
     @Test
 
     public void fourth_test() {
-        int[] arr_correct = {-2, -1, 0, 1, 2, 3};
-        int[] arr_incorrect = {0, -2, 1, 3, 2, -1};
+        int[] arrCorrect = {-2, -1, 0, 1, 2, 3};
+        int[] arrIncorrect = {0, -2, 1, 3, 2, -1};
 
         heapsort ob = new heapsort();
-        ob.sort(arr_incorrect);
+        ob.sort(arrIncorrect);
 
-        assertArrayEquals(arr_incorrect, arr_correct);
+        assertArrayEquals(arrIncorrect, arrCorrect);
     }
 
-    //The fifth test with an empty array
+    /**
+     * The fifth test with an empty array.
+     */
+
     @Test
 
     public void fifth_test() {
-        int[] arr_correct = {};
-        int[] arr_incorrect = {};
+        int[] arrCorrect = {};
+        int[] arrIncorrect = {};
 
         heapsort ob = new heapsort();
-        ob.sort(arr_incorrect);
+        ob.sort(arrIncorrect);
 
-        assertArrayEquals(arr_incorrect, arr_correct);
+        assertArrayEquals(arrIncorrect, arrCorrect);
     }
 }
