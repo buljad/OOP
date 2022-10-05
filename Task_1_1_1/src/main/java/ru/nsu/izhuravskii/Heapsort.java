@@ -1,13 +1,16 @@
 package ru.nsu.izhuravskii;
 
-// Реализация пирамидальной сортировки на Java
+/**
+ * Heapsort realisation on java.
+ */
 public class Heapsort {
-    public void sort(int arr[]) {
+    public void sort(int[] arr) {
         int n = arr.length;
 
         // Построение кучи (перегруппируем массив)
-        for (int i = n / 2 - 1; i >= 0; i--)
+        for (int i = n / 2 - 1; i >= 0; i--) {
             heapify(arr, n, i);
+        }
 
         // Один за другим извлекаем элементы из кучи   
         for (int i = n - 1; i >= 0; i--) {
@@ -22,19 +25,22 @@ public class Heapsort {
     }
 
     // Процедура для преобразования в двоичную кучу поддерева с корневым узлом i, что является
-// индексом в arr[]. n - размер кучи
+    // индексом в arr[]. n - размер кучи
+
     void heapify(int arr[], int n, int i) {
         int largest = i; // Инициализируем наибольший элемент как корень
         int l = 2 * i + 1; // левый = 2 * i + 1
         int r = 2 * i + 2; // правый = 2 * i + 2
 
         // Если левый дочерний элемент больше корня
-        if (l < n && arr[l] > arr[largest])
+        if (l < n && arr[l] > arr[largest]) {
             largest = l;
+        }
 
         // Если правый дочерний элемент больше, чем самый большой элемент на данный момент
-        if (r < n && arr[r] > arr[largest])
+        if (r < n && arr[r] > arr[largest]) {
             largest = r;
+        }
         // Если самый большой элемент не корень
         if (largest != i) {
             int swap = arr[i];
@@ -47,10 +53,11 @@ public class Heapsort {
     }
 
     /* Вспомогательная функция для вывода на экран массива размера n */
-    static void printArray(int arr[]) {
+    static void printArray(int[] arr) {
         int n = arr.length;
-        for (int i = 0; i < n; ++i)
+        for (int i = 0; i < n; ++i) {
             System.out.print(arr[i] + " ");
+        }
         System.out.println();
     }
 
