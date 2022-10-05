@@ -12,11 +12,11 @@ public class HeapsortTests {
 
     @Test
 
-    public void first_test() {
+    public void firstTest() {
         int[] arrCorrect = {0, 1, 2, 3, 4, 5};
         int[] arrIncorrect = {1, 5, 0, 2, 4, 3};
 
-        heapsort ob = new heapsort();
+        Heapsort ob = new Heapsort();
         ob.sort(arrIncorrect);
 
         assertArrayEquals(arrIncorrect, arrCorrect);
@@ -28,12 +28,12 @@ public class HeapsortTests {
 
     @Test
 
-    public void second_test() {
+    public void secondTest() {
 
         int[] arrCorrect = {0, 0, 0, 0, 0, 0};
         int[] arrIncorrect = {0, 0, 0, 0, 0, 0};
 
-        heapsort ob = new heapsort();
+        Heapsort ob = new Heapsort();
         ob.sort(arrIncorrect);
 
         assertArrayEquals(arrIncorrect, arrCorrect);
@@ -45,12 +45,12 @@ public class HeapsortTests {
 
     @Test
 
-    public void third_test() {
+    public void thirdTest() {
 
         int[] arrCorrect = {0};
         int[] arrIncorrect = {0};
 
-        heapsort ob = new heapsort();
+        Heapsort ob = new Heapsort();
         ob.sort(arrIncorrect);
 
         assertArrayEquals(arrIncorrect, arrCorrect);
@@ -62,11 +62,11 @@ public class HeapsortTests {
 
     @Test
 
-    public void fourth_test() {
+    public void fourthTest() {
         int[] arrCorrect = {-2, -1, 0, 1, 2, 3};
         int[] arrIncorrect = {0, -2, 1, 3, 2, -1};
 
-        heapsort ob = new heapsort();
+        Heapsort ob = new Heapsort();
         ob.sort(arrIncorrect);
 
         assertArrayEquals(arrIncorrect, arrCorrect);
@@ -78,11 +78,11 @@ public class HeapsortTests {
 
     @Test
 
-    public void fifth_test() {
+    public void fifthTest() {
         int[] arrCorrect = {};
         int[] arrIncorrect = {};
 
-        heapsort ob = new heapsort();
+        Heapsort ob = new Heapsort();
         ob.sort(arrIncorrect);
 
         assertArrayEquals(arrIncorrect, arrCorrect);
