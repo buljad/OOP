@@ -4,6 +4,10 @@ package ru.nsu.izhuravskii;
  * Heapsort realisation on java.
  */
 public class Heapsort {
+
+    /**
+     * Sort exactly.
+     */
     public void sort(int[] arr) {
         int n = arr.length;
 
@@ -27,7 +31,7 @@ public class Heapsort {
     // Процедура для преобразования в двоичную кучу поддерева с корневым узлом i, что является
     // индексом в arr[]. n - размер кучи
 
-    void heapify(int arr[], int n, int i) {
+    void heapify(int[] arr, int n, int i) {
         int largest = i; // Инициализируем наибольший элемент как корень
         int l = 2 * i + 1; // левый = 2 * i + 1
         int r = 2 * i + 2; // правый = 2 * i + 2
@@ -62,7 +66,7 @@ public class Heapsort {
     }
 
     // Управляющая программа
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         System.out.println("Success!!!");
     }
 }
