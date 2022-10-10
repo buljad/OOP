@@ -1,6 +1,6 @@
 
 import java.util.Arrays;
-public class stack {
+public class Stack {
     public int cnt = 0;
     public Number[] stack;
     public int stack_len = 1;
