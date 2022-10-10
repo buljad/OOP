@@ -4,6 +4,9 @@ import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 import org.junit.jupiter.api.Test;
 
+/**
+ * Tests for Heapsort.java program.
+ */
 public class HeapsortTests {
 
     /**
