@@ -9,7 +9,6 @@ public class Stack <T>{
     public T[] stack;
     public int stackLen;
 
-
     public void stack_init(int capacity) {
         cnt = 0;
         stackLen = capacity;
@@ -37,7 +36,7 @@ public class Stack <T>{
         }
     }
     public void pop_stack(int num) {
-        for(int i = 0; i < num; i++) {
+        for(int j = 0; j < num; j++) {
             pop();
         }
     }
@@ -45,4 +44,5 @@ public class Stack <T>{
     public int count() {
         return cnt;
     }
+
 }
