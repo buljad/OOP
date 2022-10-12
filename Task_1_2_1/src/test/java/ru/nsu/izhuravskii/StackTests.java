@@ -112,11 +112,12 @@ public class StackTests {
         Stack <Integer> st2 = new Stack<>();
         st2.stackInit(2);
 
-        Integer[] arrPush = {1,2};
-        st1.pushStack(arrPush);
-        Integer p = st1.pop();
+        st1.push(1);
+        st1.push(1);
 
-        st2.push(p);
+        Integer t = st1.pop();
+
+        st2.push(t);
 
         Assertions.assertEquals(st1, st2);
     }

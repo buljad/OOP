@@ -31,12 +31,12 @@ public class Stack <T> {
      * @param obj - object to add.
      */
     public void push(T obj) {
-        cnt++;
-        if (cnt > stackLen) {
+        if (cnt >= stackLen) {
             stackLen *= 2;
             stack = Arrays.copyOf(stack, stackLen);
         }
-        stack[cnt--] = obj;
+        stack[cnt] = obj;
+        cnt++;
     }
 
     /**
