@@ -12,7 +12,7 @@ public class Stack <T> {
     private int stackLen;
 
     @SuppressWarnings("unchecked")
-    public void stack_init(int capacity) {
+    public void stackInit(int capacity) {
         this.cnt = 0;
         this.stackLen = capacity;
         this.stack = (T[]) new Object[stackLen];
@@ -26,19 +26,23 @@ public class Stack <T> {
         stack[cnt--] = obj;
     }
 
-    public void push_stack(T[] new_stack) {
+    public void pushStack(T[] new_stack) {
         for(T i : new_stack) {
             push(i);
         }
     }
 
-    public void pop() {
+    public T pop() {
         if (cnt != 0) {
-            stack[cnt] = null;
             cnt--;
+            T prev = stack[cnt];
+            stack[cnt] = null;
+            return prev;
+        } else {
+            return null;
         }
     }
-    public void pop_stack(int num) {
+    public void popStack(int num) {
         for(int j = 0; j < num; j++) {
             pop();
         }
