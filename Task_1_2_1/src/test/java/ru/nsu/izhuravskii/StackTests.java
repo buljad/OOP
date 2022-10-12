@@ -1,35 +1,33 @@
 package ru.nsu.izhuravskii;
 
-import java.util.Arrays;
+import org.junit.jupiter.api.Assertions;
 
-import java.lang.Object;
+import org.junit.jupiter.api.Test;
+
 
 public class StackTests {
-    private static boolean deepEquals(Object one, Object two) {
-        if (one instanceof byte[])
-            return Arrays.equals((byte[])one, (byte[])two);
-        if (one instanceof char[])
-            return Arrays.equals((char[])one, (char[])two);
-        if (one instanceof short[])
-            return Arrays.equals((short[])one, (short[])two);
-        if (one instanceof int[])
-            return Arrays.equals((int[])one, (int[])two);
-        if (one instanceof long[])
-            return Arrays.equals((long[])one, (long[])two);
-        if (one instanceof boolean[])
-            return Arrays.equals((boolean[])one, (boolean[])two);
-        if (one instanceof float[])
-            return Arrays.equals((float[])one, (float[])two);
-        if (one instanceof double[])
-            return Arrays.equals((double[])one, (double[])two);
-        if (one instanceof Object[])
-            return Arrays.equals((Object[])one, (Object[])two);
-        return one.equals(two);
-    }
 
     /**
-     * The first Test with stack including only numbers.
+     * The first Test with stack where pushed only numbers.
      */
+
+    @Test
+    public void firstTest() {
+        Stack <Integer> st1 = new Stack<>();
+        st1.stack_init(3);
+        Stack <Integer> st2 = new Stack<>();
+        st2.stack_init(3);
+
+        st1.push(1);
+        st1.push(2);
+        st1.push(3);
+
+        st2.push(1);
+        st2.push(2);
+        st2.push(3);
+
+        Assertions.assertEquals(st1, st2);
+    }
 
 
 }

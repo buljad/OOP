@@ -2,17 +2,20 @@ package ru.nsu.izhuravskii;
 
 import java.util.Arrays;
 
+import java.util.Objects;
+
 import java.lang.Object;
 
-public class Stack <T>{
-    public int cnt;
-    public T[] stack;
-    public int stackLen;
+public class Stack <T> {
+    private int cnt;
+    private T[] stack;
+    private int stackLen;
 
+    @SuppressWarnings("unchecked")
     public void stack_init(int capacity) {
-        cnt = 0;
-        stackLen = capacity;
-        stack = (T[]) new Object[stackLen];
+        this.cnt = 0;
+        this.stackLen = capacity;
+        this.stack = (T[]) new Object[stackLen];
     }
     public void push(T obj) {
         cnt++;
@@ -43,6 +46,32 @@ public class Stack <T>{
 
     public int count() {
         return cnt;
+    }
+
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        Stack<?> expected = (Stack<?>) obj;
+        if (cnt != expected.cnt) {
+            return false;
+        }
+        for (int i = 0; i < cnt; i++) {
+            if (stack[i] != expected.stack[i]) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = Objects.hash(cnt, stackLen);
+        result = 31 * result + Arrays.hashCode(stack);
+        return result;
     }
 
 }
