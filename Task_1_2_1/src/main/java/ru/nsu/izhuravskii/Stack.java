@@ -6,17 +6,30 @@ import java.util.Objects;
 
 import java.lang.Object;
 
+/**
+ * My realisation of stack on Java.
+ * @param <T> - generic type for making stack with opportunity to work with different types.
+ */
 public class Stack <T> {
     private int cnt;
     private T[] stack;
     private int stackLen;
 
+    /**
+     * Stack initialization.
+     * @param capacity - primary amount of arguments to add to stack.
+     */
     @SuppressWarnings("unchecked")
     public void stackInit(int capacity) {
         this.cnt = 0;
         this.stackLen = capacity;
         this.stack = (T[]) new Object[stackLen];
     }
+
+    /**
+     * Procedure of adding one object to stack.
+     * @param obj - object to add.
+     */
     public void push(T obj) {
         cnt++;
         if (cnt > stackLen) {
@@ -26,12 +39,20 @@ public class Stack <T> {
         stack[cnt--] = obj;
     }
 
+    /**
+     * Procedure of adding some amount of objects to stack.
+     * @param new_stack - array of objects to add.
+     */
     public void pushStack(T[] new_stack) {
         for(T i : new_stack) {
             push(i);
         }
     }
 
+    /**
+     * Procedure of deleting one object from stack.
+     * @return - returning value of the previous object, if it exists.
+     */
     public T pop() {
         if (cnt != 0) {
             cnt--;
@@ -42,12 +63,21 @@ public class Stack <T> {
             return null;
         }
     }
+
+    /**
+     * Procedure of deleting some amount of objects from stack.
+     * @param num - quantity of objects to delete.
+     */
     public void popStack(int num) {
         for(int j = 0; j < num; j++) {
             pop();
         }
     }
 
+    /**
+     * Procedure to see, how many elements are in stack now.
+     * @return - returning a quantity of elements in stack.
+     */
     public int count() {
         return cnt;
     }

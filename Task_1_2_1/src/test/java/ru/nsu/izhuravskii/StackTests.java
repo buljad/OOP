@@ -4,6 +4,9 @@ import org.junit.jupiter.api.Assertions;
 
 import org.junit.jupiter.api.Test;
 
+/**
+ * Tests for Stack.java program.
+ */
 
 public class StackTests {
 
