@@ -182,4 +182,22 @@ public class StackTests {
         Assertions.assertEquals(st1, st2);
     }
 
+    /**
+     * The eighth Test with count function.
+     */
+    @Test
+    public void countTest() {
+        Stack <Integer> st1 = new Stack<>();
+        st1.stackInit(4);
+
+        int a = 0;
+        for(int i = 0; i < 10; i++) {
+            st1.push(1);
+            a++;
+        }
+
+        int b = st1.count();
+        Assertions.assertEquals(a, b);
+    }
+
 }
