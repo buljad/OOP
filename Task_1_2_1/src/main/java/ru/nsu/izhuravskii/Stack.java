@@ -1,15 +1,15 @@
 package ru.nsu.izhuravskii;
 
 import java.lang.Object;
-import java.util.Objects;
 import java.util.Arrays;
+import java.util.Objects;
 
 /**
  * My realisation of stack on Java.
  *
  * @param <T> - generic type for making stack with opportunity to work with different types.
  */
-public class Stack <T> {
+public class Stack<T> {
     private int cnt;
     private T[] stack;
     private int stackLen;
@@ -73,7 +73,7 @@ public class Stack <T> {
      * @param num - quantity of objects to delete.
      */
     public void popStack(int num) {
-        for(int j = 0; j < num; j++) {
+        for (int j = 0; j < num; j++) {
             pop();
         }
     }
@@ -87,6 +87,13 @@ public class Stack <T> {
         return cnt;
     }
 
+    /**
+     * Realisation of "equals" method for its working with generic types.
+     *
+     * @param obj - object to compare.
+     *
+     * @return - returning true, if elements are equal, else returning false.
+     */
     public boolean equals(Object obj) {
         if (this == obj) {
             return true;
