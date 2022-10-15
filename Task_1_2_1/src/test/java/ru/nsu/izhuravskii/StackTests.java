@@ -3,7 +3,6 @@ package ru.nsu.izhuravskii;
 import org.junit.jupiter.api.Assertions;
 
 import org.junit.jupiter.api.Test;
-
 /**
  * Tests for Stack.java program.
  */
@@ -16,9 +15,9 @@ public class StackTests {
 
     @Test
     public void pushTest() {
-        Stack < Integer > st1 = new Stack<>();
+        Stack<Integer> st1 = new Stack<>();
         st1.stackInit(3);
-        Stack < Integer > st2 = new Stack<>();
+        Stack<Integer> st2 = new Stack<>();
         st2.stackInit(3);
 
         st1.push(1);
@@ -37,9 +36,9 @@ public class StackTests {
      */
     @Test
     public void popTest() {
-        Stack < Integer > st1 = new Stack<>();
+        Stack<Integer> st1 = new Stack<>();
         st1.stackInit(4);
-        Stack < Integer > st2 = new Stack<>();
+        Stack<Integer> st2 = new Stack<>();
         st2.stackInit(4);
 
         st1.push(1);
@@ -61,9 +60,9 @@ public class StackTests {
 
     @Test
     public void pushStackTest() {
-        Stack < Integer > st1 = new Stack<>();
+        Stack<Integer> st1 = new Stack<>();
         st1.stackInit(4);
-        Stack < Integer > st2 = new Stack<>();
+        Stack<Integer> st2 = new Stack<>();
         st2.stackInit(4);
 
         Integer[] arr = {1, 2, 3, 4};
@@ -84,9 +83,9 @@ public class StackTests {
 
     @Test
     public void popStackTest() {
-        Stack < Integer > st1 = new Stack<>();
+        Stack<Integer> st1 = new Stack<>();
         st1.stackInit(4);
-        Stack < Integer > st2 = new Stack<>();
+        Stack<Integer> st2 = new Stack<>();
         st2.stackInit(4);
 
         Integer[] arrPush = {1, 2, 3, 4};
@@ -107,9 +106,9 @@ public class StackTests {
 
     @Test
     public void popReturnTest() {
-        Stack < Integer > st1 = new Stack<>();
+        Stack<Integer> st1 = new Stack<>();
         st1.stackInit(2);
-        Stack < Integer > st2 = new Stack<>();
+        Stack<Integer> st2 = new Stack<>();
         st2.stackInit(2);
 
         st1.push(1);
@@ -127,9 +126,9 @@ public class StackTests {
 
     @Test
     public void emptyStackTest() {
-        Stack < Integer > st1 = new Stack<>();
+        Stack<Integer> st1 = new Stack<>();
         st1.stackInit(2);
-        Stack < Integer > st2 = new Stack<>();
+        Stack<Integer> st2 = new Stack<>();
         st2.stackInit(2);
 
         st1.push(1);
@@ -148,9 +147,9 @@ public class StackTests {
 
     @Test
     public void stringTest() {
-        Stack < Integer > st1 = new Stack<>();
+        Stack<Integer> st1 = new Stack<>();
         st1.stackInit(1);
-        Stack < Integer > st2 = new Stack<>();
+        Stack<Integer> st2 = new Stack<>();
         st2.stackInit(1);
 
         for (int i = 0; i < 20; i++) {
@@ -166,9 +165,9 @@ public class StackTests {
      */
     @Test
     public void overflowingTest() {
-        Stack < String > st1 = new Stack<>();
+        Stack<String> st1 = new Stack<>();
         st1.stackInit(4);
-        Stack < String > st2 = new Stack<>();
+        Stack<String> st2 = new Stack<>();
         st2.stackInit(4);
 
         String[] arrPush = {"one", "two", "three"};
@@ -187,7 +186,7 @@ public class StackTests {
      */
     @Test
     public void countTest() {
-        Stack < Integer > st1 = new Stack<>();
+        Stack<Integer> st1 = new Stack<>();
         st1.stackInit(4);
 
         int a = 0;
