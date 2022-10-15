@@ -1,13 +1,12 @@
 package ru.nsu.izhuravskii;
 
-import java.util.Arrays;
-
-import java.util.Objects;
-
 import java.lang.Object;
+import java.util.Objects;
+import java.util.Arrays;
 
 /**
  * My realisation of stack on Java.
+ *
  * @param <T> - generic type for making stack with opportunity to work with different types.
  */
 public class Stack <T> {
@@ -17,6 +16,7 @@ public class Stack <T> {
 
     /**
      * Stack initialization.
+     *
      * @param capacity - primary amount of arguments to add to stack.
      */
     @SuppressWarnings("unchecked")
@@ -28,6 +28,7 @@ public class Stack <T> {
 
     /**
      * Procedure of adding one object to stack.
+     *
      * @param obj - object to add.
      */
     public void push(T obj) {
@@ -41,16 +42,18 @@ public class Stack <T> {
 
     /**
      * Procedure of adding some amount of objects to stack.
-     * @param new_stack - array of objects to add.
+     *
+     * @param newStack - array of objects to add.
      */
-    public void pushStack(T[] new_stack) {
-        for(T i : new_stack) {
+    public void pushStack(T[] newStack) {
+        for (T i : newStack) {
             push(i);
         }
     }
 
     /**
      * Procedure of deleting one object from stack.
+     *
      * @return - returning value of the previous object, if it exists.
      */
     public T pop() {
@@ -66,6 +69,7 @@ public class Stack <T> {
 
     /**
      * Procedure of deleting some amount of objects from stack.
+     *
      * @param num - quantity of objects to delete.
      */
     public void popStack(int num) {
@@ -76,6 +80,7 @@ public class Stack <T> {
 
     /**
      * Procedure to see, how many elements are in stack now.
+     *
      * @return - returning a quantity of elements in stack.
      */
     public int count() {

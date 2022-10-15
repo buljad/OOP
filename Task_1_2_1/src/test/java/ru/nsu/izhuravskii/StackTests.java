@@ -190,7 +190,7 @@ public class StackTests {
         st1.stackInit(4);
 
         int a = 0;
-        for(int i = 0; i < 10; i++) {
+        for (int i = 0; i < 10; i++) {
             st1.push(1);
             a++;
         }
