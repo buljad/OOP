@@ -47,7 +47,7 @@ public class Tree<T> {
     }
 
     public Tree <T> getParent(Tree <T> p) {
-
+        return p.parent;
     }
 
     @Override
