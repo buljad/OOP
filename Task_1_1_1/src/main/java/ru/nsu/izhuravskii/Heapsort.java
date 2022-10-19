@@ -56,11 +56,6 @@ public class Heapsort {
         }
     }
 
-    /* Вспомогательная функция для вывода на экран массива размера n */
-    static void printArray(int[] arr) {
-        Arrays.toString(arr);
-    }
-
     // Управляющая программа
     public static void main(String[] args) {
         System.out.println("Success!!!");
