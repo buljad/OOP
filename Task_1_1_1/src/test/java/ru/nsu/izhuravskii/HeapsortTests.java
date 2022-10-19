@@ -10,12 +10,10 @@ import org.junit.jupiter.api.Test;
 public class HeapsortTests {
 
     /**
-     * The first test with a common heapsort.
+     * Test with a common heapsort.
      */
-
     @Test
-
-    public void firstTest() {
+    public void sortTest() {
         int[] arrCorrect = {0, 1, 2, 3, 4, 5};
         int[] arrIncorrect = {1, 5, 0, 2, 4, 3};
 
@@ -26,12 +24,10 @@ public class HeapsortTests {
     }
 
     /**
-     * The second test with an array which consists only same elements.
+     * Test with an array which consists only same elements.
      */
-
     @Test
-
-    public void secondTest() {
+    public void sameElementsTest() {
 
         int[] arrCorrect = {0, 0, 0, 0, 0, 0};
         int[] arrIncorrect = {0, 0, 0, 0, 0, 0};
@@ -43,12 +39,10 @@ public class HeapsortTests {
     }
 
     /**
-     * The third test with an array with only one element.
+     * Test with an array with only one element.
      */
-
     @Test
-
-    public void thirdTest() {
+    public void oneElementTest() {
 
         int[] arrCorrect = {0};
         int[] arrIncorrect = {0};
@@ -60,12 +54,10 @@ public class HeapsortTests {
     }
 
     /**
-     * The fourth test with negative numbers.
+     * Test with negative numbers.
      */
-
     @Test
-
-    public void fourthTest() {
+    public void negativeTest() {
         int[] arrCorrect = {-2, -1, 0, 1, 2, 3};
         int[] arrIncorrect = {0, -2, 1, 3, 2, -1};
 
@@ -76,12 +68,10 @@ public class HeapsortTests {
     }
 
     /**
-     * The fifth test with an empty array.
+     * Test with an empty array.
      */
-
     @Test
-
-    public void fifthTest() {
+    public void emptyTest() {
         int[] arrCorrect = {};
         int[] arrIncorrect = {};
 
