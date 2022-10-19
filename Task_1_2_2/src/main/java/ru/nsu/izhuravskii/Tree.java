@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class Tree<T> {
+public class Tree<T> implements Iterable <T> {
 
     private T value;
     private Tree<T> parent;
@@ -65,8 +65,10 @@ public class Tree<T> {
 
     @Override
     public int hashCode() {
-        return Objects.hash(value, children);
+        return Objects.hash(value, parent, children);
+    }
+
+    public Iterator<T> iterator() {
+        return new DepthFirstSearch<>(this);
     }
 }
-
-
