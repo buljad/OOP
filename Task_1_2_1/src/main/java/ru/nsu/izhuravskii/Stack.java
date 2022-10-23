@@ -94,6 +94,7 @@ public class Stack<T> {
      *
      * @return - returning true, if elements are equal, else returning false.
      */
+    @Override
     public boolean equals(Object obj) {
         if (this == obj) {
             return true;
@@ -102,15 +103,9 @@ public class Stack<T> {
             return false;
         }
         Stack<?> expected = (Stack<?>) obj;
-        if (cnt != expected.cnt) {
-            return false;
-        }
-        for (int i = 0; i < cnt; i++) {
-            if (stack[i] != expected.stack[i]) {
-                return false;
-            }
-        }
-        return true;
+
+        return cnt == expected.cnt
+                && Arrays.equals(stack, 0, cnt, expected.stack, 0, expected.cnt);
     }
 
     @Override
