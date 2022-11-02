@@ -64,7 +64,14 @@ public class StackTests {
         Stack<Integer> st2 = new Stack<>();
         st2.stackInit(4);
 
-        Integer[] arr = {1, 2, 3, 4};
+        Stack<Integer> arr = new Stack<>();
+        arr.stackInit(4);
+
+        arr.push(1);
+        arr.push(2);
+        arr.push(3);
+        arr.push(4);
+
 
         st1.pushStack(arr);
 
@@ -87,9 +94,14 @@ public class StackTests {
         Stack<Integer> st2 = new Stack<>();
         st2.stackInit(4);
 
-        Integer[] arrPush = {1, 2, 3, 4};
+        Stack<Integer> arr = new Stack<>();
+        arr.stackInit(4);
 
-        st1.pushStack(arrPush);
+        arr.push(1);
+        arr.push(2);
+        arr.push(3);
+        arr.push(4);
+
 
         st2.push(1);
         st2.push(2);
@@ -169,8 +181,13 @@ public class StackTests {
         Stack<String> st2 = new Stack<>();
         st2.stackInit(4);
 
-        String[] arrPush = {"one", "two", "three"};
-        st1.pushStack(arrPush);
+        Stack<String> arr = new Stack<>();
+        arr.stackInit(4);
+
+        arr.push("one");
+        arr.push("two");
+        arr.push("three");
+
 
         st2.push("one");
         st2.push("two");

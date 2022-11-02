@@ -45,8 +45,8 @@ public class Stack<T> {
      *
      * @param newStack - array of objects to add.
      */
-    public void pushStack(T[] newStack) {
-        for (T i : newStack) {
+    public void pushStack(Stack<T> newStack) {
+        for (T i : newStack.stack) {
             push(i);
         }
     }
