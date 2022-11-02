@@ -73,9 +73,7 @@ public class Stack<T> {
      * @param num - quantity of objects to delete.
      */
     public void popStack(int num) {
-        for (int j = 0; j < num; j++) {
-            pop();
-        }
+        this.cnt -= num;
     }
 
     /**
