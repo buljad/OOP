@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 public class StackTests {
 
     /**
-     * The first Test with push function.
+     * Test with push function.
      */
 
     @Test
@@ -31,7 +31,7 @@ public class StackTests {
     }
 
     /**
-     * The second Test with pop function.
+     * Test with pop function.
      */
     @Test
     public void popTest() {
@@ -54,7 +54,7 @@ public class StackTests {
     }
 
     /**
-     * The third Test with pushStack function.
+     * Test with pushStack function.
      */
 
     @Test
@@ -84,7 +84,7 @@ public class StackTests {
     }
 
     /**
-     * The third Test with popStack function.
+     * Test with popStack function.
      */
 
     @Test
@@ -109,7 +109,7 @@ public class StackTests {
     }
 
     /**
-     * The fourth Test with the pop return action.
+     * Test with the pop return action.
      */
 
     @Test
@@ -129,7 +129,7 @@ public class StackTests {
         Assertions.assertEquals(st1, st2);
     }
     /**
-     * The fifth Test with comparing of empty stacks and extra pop action.
+     * Test with comparing of empty stacks and extra pop action.
      */
 
     @Test
@@ -150,9 +150,8 @@ public class StackTests {
     }
 
     /**
-     * The sixth Test with strings including stacks comparing.
+     * Test with overflowing of stack's capacity.
      */
-
     @Test
     public void overflowingTest() {
         Stack<Integer> st1 = new Stack<>();
@@ -169,33 +168,7 @@ public class StackTests {
     }
 
     /**
-     * The seventh Test with overflowing of stack's capacity.
-     */
-    @Test
-    public void stringTest() {
-        Stack<String> st1 = new Stack<>();
-        st1.stackInit(4);
-        Stack<String> st2 = new Stack<>();
-        st2.stackInit(4);
-
-        Stack<String> arr = new Stack<>();
-        arr.stackInit(4);
-
-        arr.push("one");
-        arr.push("two");
-        arr.push("three");
-
-
-        st2.push("one");
-        st2.push("two");
-
-        st1.pop();
-
-        Assertions.assertEquals(st1, st2);
-    }
-
-    /**
-     * The eighth Test with count function.
+     * Test with count function.
      */
     @Test
     public void countTest() {
