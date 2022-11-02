@@ -94,13 +94,10 @@ public class StackTests {
         Stack<Integer> st2 = new Stack<>();
         st2.stackInit(4);
 
-        Stack<Integer> arr = new Stack<>();
-        arr.stackInit(4);
-
-        arr.push(1);
-        arr.push(2);
-        arr.push(3);
-        arr.push(4);
+        st1.push(1);
+        st1.push(2);
+        st1.push(3);
+        st1.push(4);
 
 
         st2.push(1);
@@ -157,7 +154,7 @@ public class StackTests {
      */
 
     @Test
-    public void stringTest() {
+    public void overflowingTest() {
         Stack<Integer> st1 = new Stack<>();
         st1.stackInit(1);
         Stack<Integer> st2 = new Stack<>();
@@ -175,7 +172,7 @@ public class StackTests {
      * The seventh Test with overflowing of stack's capacity.
      */
     @Test
-    public void overflowingTest() {
+    public void stringTest() {
         Stack<String> st1 = new Stack<>();
         st1.stackInit(4);
         Stack<String> st2 = new Stack<>();
