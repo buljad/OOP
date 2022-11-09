@@ -11,6 +11,8 @@ public class Tree<T> implements Iterable <T> {
     private T value;
     private Tree<T> parent;
     private List<Tree<T>> children;
+    private int modificationCounter;
+
 
     public void treeInit (T val) {
         this.value = val;
