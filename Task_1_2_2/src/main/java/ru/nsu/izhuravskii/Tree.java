@@ -1,6 +1,8 @@
 package ru.nsu.izhuravskii;
 
 import org.jetbrains.annotations.NotNull;
+
+import java.util.Iterator;
 import java.util.Objects;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,12 +14,23 @@ public class Tree<T> implements Iterable <T> {
     private Tree<T> parent;
     private List<Tree<T>> children;
     private int modificationCounter;
-
+    boolean search;
 
     public void treeInit (T val) {
         this.value = val;
         this.parent = null;
         this.children = new ArrayList<>();
+    }
+
+    public Tree <T> getParent() {
+        return this.parent;
+    }
+    public List<Tree <T>> getChildren () {
+        return this.children;
+    }
+
+    public T getValue() {
+        return this.value;
     }
 
     public void addChild (@NotNull Tree<T> child, T val) {
@@ -48,10 +61,6 @@ public class Tree<T> implements Iterable <T> {
         }
     }
 
-    public Tree <T> getParent(Tree <T> p) {
-        return p.parent;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -71,6 +80,9 @@ public class Tree<T> implements Iterable <T> {
     }
 
     public Iterator<T> iterator() {
-        return new DepthFirstSearch<>(this);
+        if (search)
+            return new DepthFirstSearchIterator<>(this);
+        else
+            return new BreadthFirstSearchIterator<>(this);
     }
 }
