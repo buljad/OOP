@@ -14,7 +14,7 @@ public class Tree<T> implements Iterable <T> {
     private Tree<T> parent;
     private List<Tree<T>> children;
     private int modificationCounter;
-    boolean search;
+    private boolean search;
 
     public void treeInit (T val) {
         this.value = val;
@@ -31,6 +31,14 @@ public class Tree<T> implements Iterable <T> {
 
     public T getValue() {
         return this.value;
+    }
+
+    public void setSearch(boolean type) {
+        this.search = type;
+    }
+
+    public boolean getSearch() {
+        return this.search;
     }
 
     public void addChild (@NotNull Tree<T> child, T val) {
@@ -51,7 +59,7 @@ public class Tree<T> implements Iterable <T> {
 
     public void removeChildren(@NotNull Tree<T> member) {
         for (Tree<T> t : member.children) {
-            member.children.remove(t);
+            t.removeChild(t);
         }
     }
 
@@ -80,7 +88,7 @@ public class Tree<T> implements Iterable <T> {
     }
 
     public Iterator<T> iterator() {
-        if (search)
+        if (this.search)
             return new DepthFirstSearchIterator<>(this);
         else
             return new BreadthFirstSearchIterator<>(this);
