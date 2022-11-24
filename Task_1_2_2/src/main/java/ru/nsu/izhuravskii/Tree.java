@@ -22,17 +22,19 @@ public class Tree<T> implements Iterable <T> {
         this.children = new ArrayList<>();
     }
 
+    public void setParent(Tree<T> parent) {this.parent = parent;};
     public Tree <T> getParent() {
         return this.parent;
     }
-    public List<Tree <T>> getChildren () {
-        return this.children;
-    }
 
+    public void setValue(T val) { this.value = val; }
     public T getValue() {
         return this.value;
     }
 
+    public List<Tree <T>> getChildren () {
+        return this.children;
+    }
     public void setSearch(boolean type) {
         this.search = type;
     }
@@ -41,10 +43,22 @@ public class Tree<T> implements Iterable <T> {
         return this.search;
     }
 
-    public void addChild (@NotNull Tree<T> child, T val) {
-        child.parent = this;
+    public Tree<T> addChild (T val) {
+        Tree <T> child = new Tree<>();
         child.value = val;
-        children.add(child);
+        child.parent = this;
+        child.children = new ArrayList<>();
+        this.children.add(child);
+        return child;
+    }
+
+    public Tree<T> addChild (Tree<T> parentVertex, T val) {
+        Tree <T> child = new Tree<>();
+        child.value = val;
+        child.parent = parentVertex;
+        child.children = new ArrayList<>();
+        parentVertex.children.add(child);
+        return child;
     }
 
     public void removeChild (@NotNull Tree<T> child) {
