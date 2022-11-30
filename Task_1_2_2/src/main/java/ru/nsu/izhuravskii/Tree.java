@@ -21,24 +21,20 @@ public class Tree<T> implements Iterable <T> {
         this.parent = null;
         this.children = new ArrayList<>();
     }
-
-    public void setParent(Tree<T> parent) {this.parent = parent;};
+    public void setParent(Tree<T> parent) { this.parent = parent; };
     public Tree <T> getParent() {
         return this.parent;
     }
-
     public void setValue(T val) { this.value = val; }
     public T getValue() {
         return this.value;
     }
-
     public List<Tree <T>> getChildren () {
         return this.children;
     }
     public void setSearch(boolean type) {
         this.search = type;
     }
-
     public boolean getSearch() {
         return this.search;
     }
