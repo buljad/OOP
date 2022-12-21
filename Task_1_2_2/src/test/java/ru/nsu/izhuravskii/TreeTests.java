@@ -12,11 +12,11 @@ public class TreeTests {
         Tree<Integer> t2 = new Tree<>();
         t2.treeInit(1);
 
-        Tree<Integer> t1vertex1 = t1.addChild(2);
-        Tree<Integer> t1vertex2 = t1.addChild(3);
+        t1.addChild(2);
+        t1.addChild(3);
 
-        Tree<Integer> t2vertex1 = t2.addChild(2);
-        Tree<Integer> t2vertex2 = t2.addChild(3);
+        t2.addChild(2);
+        t2.addChild(3);
 
         Assertions.assertEquals(t1,t2);
     }
@@ -47,12 +47,12 @@ public class TreeTests {
         Tree<Integer> t2 = new Tree<>();
         t2.treeInit(1);
 
-        t1.addChild(2);
-        t1.addChild(3);
+        t1.addChild(100);
+        t1.addChild(300);
 
-        t2.addChild(3);
+        t2.addChild(300);
 
-        t1.removeChild(2);
+        t1.removeChild(0);
 
         Assertions.assertEquals(t1,t2);
     }

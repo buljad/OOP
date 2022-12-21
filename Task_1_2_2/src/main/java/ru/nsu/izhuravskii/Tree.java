@@ -1,7 +1,5 @@
 package ru.nsu.izhuravskii;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.util.Iterator;
 import java.util.Objects;
 import java.util.ArrayList;
@@ -9,7 +7,6 @@ import java.util.List;
 
 
 public class Tree<T> implements Iterable <T> {
-
     private T value;
     private Tree<T> parent;
     private List<Tree<T>> children;
@@ -22,30 +19,24 @@ public class Tree<T> implements Iterable <T> {
         this.children = new ArrayList<>();
     }
     public void setParent(Tree<T> parent) { this.parent = parent; };
-    public Tree <T> getParent() {
-        return this.parent;
-    }
+    public Tree <T> getParent() { return this.parent; }
     public void setValue(T val) { this.value = val; }
-    public T getValue() {
-        return this.value;
-    }
-    public List<Tree <T>> getChildren () {
-        return this.children;
-    }
-    public void setSearch(boolean type) {
-        this.search = type;
-    }
-    public boolean getSearch() {
-        return this.search;
-    }
+    public T getValue() { return this.value; }
+    public List<Tree <T>> getChildren () { return this.children; }
+    public void setSearch(boolean type) { this.search = type; }
+    public boolean getSearch() { return this.search; }
 
     public Tree<T> addChild (T val) {
         Tree <T> child = new Tree<>();
-        child.value = val;
-        child.parent = this;
+        child.setValue(val);
+        child.setParent(this);
         child.children = new ArrayList<>();
         this.children.add(child);
         return child;
+    }
+
+    public int getModificationCounter() {
+        return modificationCounter;
     }
 
     public Tree<T> addChild (Tree<T> parentVertex, T val) {
@@ -57,41 +48,12 @@ public class Tree<T> implements Iterable <T> {
         return child;
     }
 
-    public void removeChild (@NotNull Tree<T> vertex) {
-        if (vertex.parent != null) {
-            for (Tree<T> i : vertex.children) {
-                i.setParent(vertex.parent);
-                vertex.parent.addChild(i.value);
-            }
-            vertex.children = null;
-            vertex.parent = null;
-            vertex.value = null;
+    public void removeChild (int index) {
+        for (Tree<T> i : children.get(index).getChildren()) {
+            i.setParent(parent);
+            this.addChild(i.value);
         }
-    }
-
-    public void removeChild (T val) {
-        if (this.parent != null) {
-            for (Tree<T> i : this.children) {
-                i.setParent(this.parent);
-                this.parent.addChild(i.value);
-            }
-            this.children = null;
-            this.parent = null;
-            this.value = null;
-        }
-    }
-
-
-    public void removeChildren(@NotNull Tree<T> member) {
-        for (Tree<T> t : member.children) {
-            t.removeChild(t);
-        }
-    }
-
-    public void showChildren(@NotNull Tree <T> member) {
-        for (Tree <T> t : member.children) {
-            System.out.print(t);
-        }
+        children.remove(index);
     }
 
     @Override
