@@ -57,15 +57,30 @@ public class Tree<T> implements Iterable <T> {
         return child;
     }
 
-    public void removeChild (@NotNull Tree<T> child) {
-        if (child.children != null) {
-            child.parent.children.addAll(child.children);
-            for (Tree <T> t : child.children) {
-                child.children.remove(t);
+    public void removeChild (@NotNull Tree<T> vertex) {
+        if (vertex.parent != null) {
+            for (Tree<T> i : vertex.children) {
+                i.setParent(vertex.parent);
+                vertex.parent.addChild(i.value);
             }
+            vertex.children = null;
+            vertex.parent = null;
+            vertex.value = null;
         }
-        child.parent.children.remove(child);
     }
+
+    public void removeChild (T val) {
+        if (this.parent != null) {
+            for (Tree<T> i : this.children) {
+                i.setParent(this.parent);
+                this.parent.addChild(i.value);
+            }
+            this.children = null;
+            this.parent = null;
+            this.value = null;
+        }
+    }
+
 
     public void removeChildren(@NotNull Tree<T> member) {
         for (Tree<T> t : member.children) {

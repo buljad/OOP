@@ -44,38 +44,15 @@ public class TreeTests {
     public void removeChildTest() {
         Tree<Integer> t1 = new Tree<>();
         t1.treeInit(1);
-
         Tree<Integer> t2 = new Tree<>();
         t2.treeInit(1);
 
-        Tree<Integer> t1vertex1 = t1.addChild(2);
-        t1.addChild(t1vertex1, 3);
+        t1.addChild(2);
+        t1.addChild(3);
 
-        Tree<Integer> t2vertex1 = t2.addChild(2);
-        Tree<Integer> t2vertex2 = t2.addChild(3);
+        t2.addChild(3);
 
-        t2.removeChild(t2vertex1);
-
-        Assertions.assertEquals(t1,t2);
-    }
-
-    @Test
-    public void removeChildrenTest() {
-        Tree<Integer> t1 = new Tree<>();
-        t1.treeInit(1);
-
-        Tree<Integer> t2 = new Tree<>();
-        t2.treeInit(1);
-
-        Tree<Integer> t1vertex1 = t1.addChild(2);
-        t1.addChild(t1vertex1, 3);
-        t1.addChild(t1vertex1, 4);
-        t1.addChild(t1vertex1, 5);
-
-        Tree<Integer> t2Vertex1 = t2.addChild(2);
-
-
-        t2.removeChildren(t1vertex1);
+        t1.removeChild(2);
 
         Assertions.assertEquals(t1,t2);
     }
