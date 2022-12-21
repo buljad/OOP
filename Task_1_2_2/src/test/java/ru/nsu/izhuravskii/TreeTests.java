@@ -56,4 +56,17 @@ public class TreeTests {
 
         Assertions.assertEquals(t1,t2);
     }
+
+    @Test
+    public void modCounterTest() {
+        Tree<Integer> t1 = new Tree<>();
+        t1.treeInit(1);
+        Tree<Integer> t2 = new Tree<>();
+        t2.treeInit(1);
+
+        t1.addChild(100);
+        t1.addChild(300);
+
+        Assertions.assertEquals(t1,t2);
+    }
 }
