@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+
 public class Tree<T> implements Iterable <T> {
     private T value;
     private Tree<T> parent;
@@ -27,7 +28,8 @@ public class Tree<T> implements Iterable <T> {
     public void setSearch(boolean type) { this.search = type; }
     public boolean getSearch() { return this.search; }
     public int getModificationCounter() {
-        return modificationCounter;
+        Tree<T> root = getRoot();
+        return root.modificationCounter;
     }
     public Tree<T> getRoot() {
         Tree<T> step = this;
