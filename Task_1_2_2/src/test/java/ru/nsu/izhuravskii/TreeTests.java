@@ -1,11 +1,11 @@
 package ru.nsu.izhuravskii;
 
-import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.ConcurrentModificationException;
 import java.util.List;
 
 public class TreeTests {
@@ -169,5 +169,59 @@ public class TreeTests {
         List<Integer> real = Arrays.asList(0, 1, 2, 3, 4, 5);
 
         Assertions.assertEquals(actual, real);
+    }
+
+    @Test
+    void DFSTreeTest() {
+        Tree<Integer> root = new Tree<>();
+        root.treeInit(0);
+        Tree<Integer> child1 = root.addChild(1);
+        Tree<Integer> child2 = root.addChild(2);
+        Tree<Integer> child3 = child1.addChild(3);
+        child2.addChild(4);
+        child3.addChild(5);
+
+        DepthFirstSearchIterator<Integer> dfs = new DepthFirstSearchIterator<>(root);
+        ArrayList<Integer> actual= new ArrayList<>();
+
+        while (dfs.hasNext()) {
+            actual.add(dfs.next());
+        }
+
+        List<Integer> real = Arrays.asList(0, 2, 4, 1, 3, 5);
+
+        Assertions.assertEquals(actual, real);
+    }
+
+    @Test
+    public void DFSTreeExceptionTest() {
+        Tree<String> root = new Tree<>();
+        root.treeInit("A");
+        Tree<String> treeB;
+        treeB = root.addChild("B");
+        Tree<String> treeC;
+        treeC = treeB.addChild("C");
+        treeC.addChild("D");
+
+        DepthFirstSearchIterator<String> dfs = new DepthFirstSearchIterator<>(root);
+
+        treeC.addChild("F");
+        Assertions.assertThrows(ConcurrentModificationException.class, dfs::next);
+    }
+
+    @Test
+    public void BFSTreeExceptionTest() {
+        Tree<String> root = new Tree<>();
+        root.treeInit("A");
+        Tree<String> treeB;
+        treeB = root.addChild("B");
+        Tree<String> treeC;
+        treeC = treeB.addChild("C");
+        treeC.addChild("D");
+
+        BreadthFirstSearchIterator<String> bfs = new BreadthFirstSearchIterator<>(root);
+
+        treeC.addChild("F");
+        Assertions.assertThrows(ConcurrentModificationException.class, bfs::next);
     }
 }
