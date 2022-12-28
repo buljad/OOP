@@ -5,6 +5,10 @@ import java.util.ConcurrentModificationException;
 import java.util.Queue;
 import java.util.Iterator;
 
+/**
+ * DFS Iterator realization for iterating my tree.
+ * @param <T> - generic type of nodes' values.
+ */
 public class BreadthFirstSearchIterator<T> implements Iterator<T> {
 
     Queue<Tree<T>> queue = new ArrayDeque<>();

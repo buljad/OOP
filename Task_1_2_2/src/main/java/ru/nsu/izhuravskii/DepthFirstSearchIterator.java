@@ -4,6 +4,11 @@ import java.util.ConcurrentModificationException;
 import java.util.Iterator;
 import java.util.Stack;
 
+
+/**
+ * DFS Iterator realization for iterating my tree.
+ * @param <T> - generic type of nodes' values.
+ */
 public class DepthFirstSearchIterator<T> implements Iterator<T> {
 
     private final Stack<Tree<T>> stack = new Stack<>();
