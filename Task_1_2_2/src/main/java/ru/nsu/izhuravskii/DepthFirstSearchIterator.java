@@ -20,7 +20,7 @@ public class DepthFirstSearchIterator<T> implements Iterator<T> {
 
     @Override
     public boolean hasNext() {
-        return stack.isEmpty();
+        return !(stack.isEmpty());
     }
 
     @Override

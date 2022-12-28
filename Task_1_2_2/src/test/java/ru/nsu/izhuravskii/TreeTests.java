@@ -166,7 +166,7 @@ public class TreeTests {
             actual.add(bfs.next());
         }
 
-        List<Integer> real = Arrays.asList(0, 1, 2, 3, 4, 5);
+        List<Integer> real = Arrays.asList(0, 2, 4, 1, 3, 5);
 
         Assertions.assertEquals(actual, real);
     }
