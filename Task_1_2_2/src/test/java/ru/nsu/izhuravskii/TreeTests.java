@@ -127,4 +127,47 @@ public class TreeTests {
         Assertions.assertEquals(root, actualRoot);
     }
 
+    @Test
+    void getValueTest() {
+        Tree<String> root = new Tree<>();
+        root.treeInit("Hello world!");
+        String expression = "Hello world!";
+        String realExpression = root.getValue();
+
+        Assertions.assertEquals(expression, realExpression);
+    }
+
+    @Test
+    void setValueTest() {
+        Tree<String> root = new Tree<>();
+        root.treeInit("Hello ");
+        Tree<String> child = root.addChild(" peace!");
+        child.setValue(" world!");
+        String expression = "Hello world!";
+        String realExpression = root.getValue() + child.getValue();
+
+        Assertions.assertEquals(expression, realExpression);
+    }
+
+    @Test
+    void BFSTreeTest() {
+        Tree<Integer> root = new Tree<>();
+        root.treeInit(0);
+        Tree<Integer> child1 = root.addChild(1);
+        Tree<Integer> child2 = root.addChild(2);
+        Tree<Integer> child3 = child1.addChild(3);
+        child2.addChild(4);
+        child3.addChild(5);
+
+        BreadthFirstSearchIterator<Integer> bfs = new BreadthFirstSearchIterator<>(root);
+        ArrayList<Integer> actual= new ArrayList<>();
+
+        while (bfs.hasNext()) {
+            actual.add(bfs.next());
+        }
+
+        List<Integer> real = Arrays.asList(0, 1, 2, 3, 4, 5);
+
+        Assertions.assertEquals(actual, real);
+    }
 }
