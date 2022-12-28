@@ -11,7 +11,7 @@ import java.util.Iterator;
  */
 public class BreadthFirstSearchIterator<T> implements Iterator<T> {
 
-    Queue<Tree<T>> queue = new ArrayDeque<>();
+    private final Queue<Tree<T>> queue = new ArrayDeque<>();
     private final int modificationCounter;
 
     public BreadthFirstSearchIterator(Tree<T> vertex) {
