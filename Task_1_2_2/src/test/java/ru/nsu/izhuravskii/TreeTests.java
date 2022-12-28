@@ -141,8 +141,8 @@ public class TreeTests {
     void setValueTest() {
         Tree<String> root = new Tree<>();
         root.treeInit("Hello ");
-        Tree<String> child = root.addChild(" peace!");
-        child.setValue(" world!");
+        Tree<String> child = root.addChild("peace!");
+        child.setValue("world!");
         String expression = "Hello world!";
         String realExpression = root.getValue() + child.getValue();
 
