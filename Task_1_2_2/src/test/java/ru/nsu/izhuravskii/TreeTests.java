@@ -224,4 +224,5 @@ public class TreeTests {
         treeC.addChild("F");
         Assertions.assertThrows(ConcurrentModificationException.class, bfs::next);
     }
+
 }

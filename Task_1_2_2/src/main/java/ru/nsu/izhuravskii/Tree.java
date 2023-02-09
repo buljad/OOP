@@ -26,14 +26,13 @@ public class Tree<T> implements Iterable <T> {
         this.parent = null;
         this.children = new ArrayList<>();
         this.modificationCounter = 0;
-        boolean typeOfSearch = true;
     }
 
     /**
      * Method for setting or changing a parent of node.
      * @param parent - new parent's node.
      */
-    public void setParent(Tree<T> parent) { this.parent = parent; };
+    public void setParent(Tree<T> parent) { this.parent = parent; }
 
     /**
      * Method for getting vertex's parent node.
@@ -73,7 +72,7 @@ public class Tree<T> implements Iterable <T> {
 
     /**
      * Choosing a type of search for iterator (default it is BFS).
-     * @return - returns type of saerch for Iterator.
+     * @return - returns type of search for Iterator.
      */
     @Override
     public Iterator<T> iterator() {
