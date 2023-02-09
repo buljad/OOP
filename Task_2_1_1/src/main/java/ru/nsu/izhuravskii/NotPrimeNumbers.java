@@ -1,7 +1,5 @@
 package ru.nsu.izhuravskii;
 
-import java.lang.Math;
-
 import static java.lang.Math.sqrt;
 
 public class NotPrimeNumbers {
