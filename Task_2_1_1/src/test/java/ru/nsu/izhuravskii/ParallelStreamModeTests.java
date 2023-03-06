@@ -45,6 +45,13 @@ public class ParallelStreamModeTests {
         boolean expectedValue = true;
         boolean actualValue = ParallelStreamMode.parallelStreamFinder(numbers);
         Assertions.assertEquals(expectedValue, actualValue);
+    }
 
+    @Test
+    public void mixPrimeTest() {
+        List<Long> numbers = Arrays.asList(3L, 3L, 3L, 1L, 1L);
+        boolean expectedValue = false;
+        boolean actualValue = ParallelStreamMode.parallelStreamFinder(numbers);
+        Assertions.assertEquals(expectedValue, actualValue);
     }
 }
