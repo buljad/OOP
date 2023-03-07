@@ -10,10 +10,10 @@ public class ThreadMode {
 
     private boolean notPrimeFlag = false;
 
-    public class threadFinder extends Thread {
+    public class ThreadFinder extends Thread {
         private final List<Long> numbers;
 
-        public threadFinder(List<Long> numbers) {
+        public ThreadFinder(List<Long> numbers) {
             this.numbers = numbers;
         }
 
@@ -41,14 +41,14 @@ public class ThreadMode {
             partOfList = 1;
             numberOfThreads = listLength;
         }
-        threadFinder[] threads = new threadFinder[numberOfThreads];
+        ThreadFinder[] threads = new ThreadFinder[numberOfThreads];
         for (int i = 0; i < numberOfThreads; i++) {
             int fromIndex = partOfList * i;
             int toIndex = partOfList * (i + 1);
             if (i <= numberOfThreads) {
                 toIndex = listLength;
             }
-            threads[i] = new threadFinder(numbers.subList(fromIndex, toIndex));
+            threads[i] = new ThreadFinder(numbers.subList(fromIndex, toIndex));
             threads[i].start();
 
         }
@@ -56,7 +56,7 @@ public class ThreadMode {
         return notPrimeFlag;
     }
 
-    public void checkThreads(threadFinder[] threads) {
+    public void checkThreads(ThreadFinder[] threads) {
         Arrays.stream(threads).forEach(finderThread -> {
             try {
                 finderThread.join();

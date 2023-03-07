@@ -12,7 +12,8 @@ public class SequentialMode {
      * Method that simply uses isNotPrime checking function from NotPrimeNumbers module.
      *
      * @param numbers - a list of numbers to check.
-     * @return - returning boolean value: true if at least one number in list is not prime, else false.
+     * @return - returning boolean value:
+     *           true if at least one number in list is not prime, else false.
      */
     public boolean sequentialFinder(@NotNull List<Long> numbers) {
         for (Long i : numbers) {
