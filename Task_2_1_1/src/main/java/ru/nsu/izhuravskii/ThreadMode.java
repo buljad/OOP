@@ -9,6 +9,7 @@ import java.util.List;
 public class ThreadMode {
 
     private boolean notPrimeFlag = false;
+
     public class threadFinder extends Thread {
         private final List<Long> numbers;
 
@@ -27,7 +28,7 @@ public class ThreadMode {
         }
     }
 
-    public boolean multiThreadFinder(List <Long> numbers, int numberOfThreads) {
+    public boolean multiThreadFinder(List<Long> numbers, int numberOfThreads) {
         int maxThreads = Runtime.getRuntime().availableProcessors();
         if (numberOfThreads > maxThreads) {
             numberOfThreads = maxThreads;
@@ -44,7 +45,7 @@ public class ThreadMode {
         for (int i = 0; i < numberOfThreads; i++) {
             int fromIndex = partOfList * i;
             int toIndex = partOfList * (i + 1);
-            if (i == numberOfThreads) {
+            if (i <= numberOfThreads) {
                 toIndex = listLength;
             }
             threads[i] = new threadFinder(numbers.subList(fromIndex, toIndex));
@@ -54,6 +55,7 @@ public class ThreadMode {
         checkThreads(threads);
         return notPrimeFlag;
     }
+
     public void checkThreads(threadFinder[] threads) {
         Arrays.stream(threads).forEach(finderThread -> {
             try {

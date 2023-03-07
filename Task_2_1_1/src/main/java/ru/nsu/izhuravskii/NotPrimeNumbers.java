@@ -8,6 +8,7 @@ import static java.lang.Math.sqrt;
 public class NotPrimeNumbers {
     /**
      * Exact method of searching a non-prime number in the list.
+     *
      * @param num - number to check on primality.
      * @return - returning boolean value: true if number is not prime, else false.
      */
