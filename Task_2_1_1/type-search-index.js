@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"ru.nsu.izhuravskii","l":"NotPrimeNumbers"},{"p":"ru.nsu.izhuravskii","l":"ParallelStreamMode"},{"p":"ru.nsu.izhuravskii","l":"SequentialMode"},{"p":"ru.nsu.izhuravskii","l":"ThreadMode.ThreadFinder"},{"p":"ru.nsu.izhuravskii","l":"ThreadMode"}];updateSearchResults();
