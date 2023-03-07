@@ -6,6 +6,9 @@ import org.junit.jupiter.api.Test;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * Tests for SequentialMode of finding a non-prime number.
+ */
 public class SequentialModeTests {
     @Test
     public void notPrimeTest() {

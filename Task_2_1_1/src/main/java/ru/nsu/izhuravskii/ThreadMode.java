@@ -3,6 +3,9 @@ package ru.nsu.izhuravskii;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * A variant of searching a non-prime number in the list using threads.
+ */
 public class ThreadMode {
 
     private boolean notPrimeFlag = false;

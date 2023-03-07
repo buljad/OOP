@@ -6,6 +6,9 @@ import org.junit.jupiter.api.Test;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * Tests for checking a parallelStream variant of solving.
+ */
 public class ParallelStreamModeTests {
     @Test
     public void notPrimeTest() {
