@@ -45,9 +45,6 @@ public class ThreadMode {
         for (int i = 0; i < numberOfThreads; i++) {
             int fromIndex = partOfList * i;
             int toIndex = partOfList * (i + 1);
-            if (i <= numberOfThreads) {
-                toIndex = listLength;
-            }
             threads[i] = new ThreadFinder(numbers.subList(fromIndex, toIndex));
             threads[i].start();
 
