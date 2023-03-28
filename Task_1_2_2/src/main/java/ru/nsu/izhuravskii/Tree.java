@@ -1,16 +1,16 @@
 package ru.nsu.izhuravskii;
 
-import java.util.Iterator;
-import java.util.Objects;
 import java.util.ArrayList;
 import java.util.List;
-
+import java.util.Iterator;
+import java.util.Objects;
 
 /**
  * Implementation of Tree on java language.
+ *
  * @param <T> - generic type of nodes int Tree.
  */
-public class Tree<T> implements Iterable <T> {
+public class Tree<T> implements Iterable<T> {
     private T value;
     private Tree<T> parent;
     private List<Tree<T>> children;
@@ -19,9 +19,10 @@ public class Tree<T> implements Iterable <T> {
 
     /**
      * Method for the Tree initializing.
+     *
      * @param val - value of the Tree's root
      */
-    public void treeInit (T val) {
+    public void treeInit(T val) {
         this.value = val;
         this.parent = null;
         this.children = new ArrayList<>();
@@ -30,48 +31,57 @@ public class Tree<T> implements Iterable <T> {
 
     /**
      * Method for setting or changing a parent of node.
+     *
      * @param parent - new parent's node.
      */
     public void setParent(Tree<T> parent) { this.parent = parent; }
 
     /**
      * Method for getting vertex's parent node.
+     *
      * @return - returns node of the vertex's parent.
      */
+
     public Tree <T> getParent() { return this.parent; }
 
     /**
      * Sets a new value for the node.
+     *
      * @param val - new value.
      */
     public void setValue(T val) { this.value = val; }
 
     /**
      * Gets a value of the node.
+     *
      * @return - returns value of the node.
      */
     public T getValue() { return this.value; }
 
     /**
      * Method for getting a list of node's children.
+     *
      * @return - returns list of children.
      */
     public List<Tree <T>> getChildren () { return this.children; }
 
     /**
      * Setting a type of search for Iterator(true - BFS, false - DFS)
+     *
      * @param type - return only true or false because we have only 2 variants of search.
      */
     public void setSearch(boolean type) { this.search = type; }
 
     /**
      * Getting a type of search for the tree.
+     *
      * @return - returns boolean value for choosing a type of search.
      */
     public boolean getSearch() { return this.search; }
 
     /**
      * Choosing a type of search for iterator (default it is BFS).
+     *
      * @return - returns type of search for Iterator.
      */
     @Override
@@ -84,6 +94,7 @@ public class Tree<T> implements Iterable <T> {
 
     /**
      * Method for getting a modification counter for controlling changes in tree.
+     *
      * @return - returns quantity of actions with tree.
      */
     public int getModificationCounter() {
@@ -93,6 +104,7 @@ public class Tree<T> implements Iterable <T> {
 
     /**
      * Gets root of the tree.
+     *
      * @return - returns the root.
      */
     public Tree<T> getRoot() {
@@ -106,11 +118,12 @@ public class Tree<T> implements Iterable <T> {
 
     /**
      * Method for adding a new node to the tree.
+     *
      * @param val - value of the new node.
      * @return - returns new node.
      */
     public Tree<T> addChild (T val) {
-        Tree <T> child = new Tree<>();
+        Tree<T> child = new Tree<>();
         child.setValue(val);
         child.setParent(this);
         child.children = new ArrayList<>();
