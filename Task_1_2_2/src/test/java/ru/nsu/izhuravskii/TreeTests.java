@@ -1,12 +1,11 @@
 package ru.nsu.izhuravskii;
 
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.ConcurrentModificationException;
 import java.util.List;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 public class TreeTests {
 
@@ -24,7 +23,7 @@ public class TreeTests {
         t2.addChild(2);
         t2.addChild(3);
 
-        Assertions.assertEquals(t1,t2);
+        Assertions.assertEquals(t1, t2);
     }
 
     @Test
@@ -43,7 +42,7 @@ public class TreeTests {
         Tree<Integer> t2Vertex2 = t2.addChild(t2Vertex1, 2);
         t2Vertex2.addChild(3);
 
-        Assertions.assertEquals(t1,t2);
+        Assertions.assertEquals(t1, t2);
     }
 
     @Test
@@ -60,7 +59,7 @@ public class TreeTests {
 
         t1.removeChild(0);
 
-        Assertions.assertEquals(t1,t2);
+        Assertions.assertEquals(t1, t2);
     }
 
     @Test
@@ -105,7 +104,7 @@ public class TreeTests {
 
         List<Tree<Integer>> actualChildren = root.getChildren();
         List<Integer> children = new ArrayList<>();
-        for(Tree<Integer> i : actualChildren) {
+        for (Tree<Integer> i : actualChildren) {
             children.add(i.getValue());
         }
 
@@ -150,7 +149,7 @@ public class TreeTests {
     }
 
     @Test
-    void BFSTreeTest() {
+    void bfsTreeTest() {
         Tree<Integer> root = new Tree<>();
         root.treeInit(0);
         Tree<Integer> child1 = root.addChild(1);
@@ -160,7 +159,7 @@ public class TreeTests {
         child3.addChild(5);
 
         BreadthFirstSearchIterator<Integer> bfs = new BreadthFirstSearchIterator<>(root);
-        ArrayList<Integer> actual= new ArrayList<>();
+        ArrayList<Integer> actual = new ArrayList<>();
 
         while (bfs.hasNext()) {
             actual.add(bfs.next());
@@ -172,7 +171,7 @@ public class TreeTests {
     }
 
     @Test
-    void DFSTreeTest() {
+    void dfsTreeTest() {
         Tree<Integer> root = new Tree<>();
         root.treeInit(0);
         Tree<Integer> child1 = root.addChild(1);
@@ -182,7 +181,7 @@ public class TreeTests {
         child3.addChild(5);
 
         DepthFirstSearchIterator<Integer> dfs = new DepthFirstSearchIterator<>(root);
-        ArrayList<Integer> actual= new ArrayList<>();
+        ArrayList<Integer> actual = new ArrayList<>();
 
         while (dfs.hasNext()) {
             actual.add(dfs.next());
@@ -194,7 +193,7 @@ public class TreeTests {
     }
 
     @Test
-    public void DFSTreeExceptionTest() {
+    public void dfsTreeExceptionTest() {
         Tree<String> root = new Tree<>();
         root.treeInit("A");
         Tree<String> treeB;
@@ -210,7 +209,7 @@ public class TreeTests {
     }
 
     @Test
-    public void BFSTreeExceptionTest() {
+    public void bfsTreeExceptionTest() {
         Tree<String> root = new Tree<>();
         root.treeInit("A");
         Tree<String> treeB;

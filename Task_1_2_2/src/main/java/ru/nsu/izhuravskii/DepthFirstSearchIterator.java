@@ -7,6 +7,7 @@ import java.util.Stack;
 
 /**
  * DFS Iterator realization for iterating my tree.
+ *
  * @param <T> - generic type of nodes' values.
  */
 public class DepthFirstSearchIterator<T> implements Iterator<T> {

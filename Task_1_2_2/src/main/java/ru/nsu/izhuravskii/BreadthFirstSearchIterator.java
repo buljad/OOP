@@ -7,10 +7,10 @@ import java.util.Iterator;
 
 /**
  * DFS Iterator realization for iterating my tree.
+ *
  * @param <T> - generic type of nodes' values.
  */
 public class BreadthFirstSearchIterator<T> implements Iterator<T> {
-
     private final Queue<Tree<T>> queue = new ArrayDeque<>();
     private final int modificationCounter;
 
@@ -28,7 +28,8 @@ public class BreadthFirstSearchIterator<T> implements Iterator<T> {
     public T next() {
         Tree<T> currentVertex = queue.remove();
         if (modificationCounter != currentVertex.getModificationCounter()) {
-            throw new ConcurrentModificationException("DON'T ADD CHANGES IN COLLECTION WHILE ITERATOR IS WORKING!");
+            throw new ConcurrentModificationException
+                    ("DON'T ADD CHANGES IN COLLECTION WHILE ITERATOR IS WORKING!");
         }
         queue.addAll(currentVertex.getChildren());
         return currentVertex.getValue();
