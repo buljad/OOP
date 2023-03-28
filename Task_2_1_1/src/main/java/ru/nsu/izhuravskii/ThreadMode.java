@@ -42,9 +42,6 @@ public class ThreadMode {
      */
     public boolean multiThreadFinder(List<Long> numbers, int numberOfThreads) {
         int maxThreads = Runtime.getRuntime().availableProcessors();
-        if (numberOfThreads > maxThreads) {
-            numberOfThreads = maxThreads;
-        }
         int listLength = numbers.size();
         int partOfList;
         if (listLength > numberOfThreads) {
