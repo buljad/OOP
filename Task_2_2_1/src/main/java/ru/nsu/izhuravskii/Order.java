@@ -17,7 +17,7 @@ public class Order {
         this.status = newStatus;
     }
 
-    public Order(int id, Status status) {
+    public Order() {
         this.id = id_counter;
         this.status = Status.ORDERED;
         id_counter ++;
