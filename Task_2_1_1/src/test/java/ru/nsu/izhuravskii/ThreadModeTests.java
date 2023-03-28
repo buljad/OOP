@@ -1,11 +1,13 @@
 package ru.nsu.izhuravskii;
 
+import java.util.Arrays;
+import java.util.List;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.util.Arrays;
-import java.util.List;
-
+/**
+ * Tests for ThreadMode of finding a non-prime number.
+ */
 public class ThreadModeTests {
 
     @Test
@@ -43,6 +45,7 @@ public class ThreadModeTests {
         boolean actualValue = test.multiThreadFinder(numbers, 2);
         Assertions.assertEquals(expectedValue, actualValue);
     }
+
     @Test
     public void threeThreadOnlyPrimeTest() {
         List<Long> numbers = Arrays.asList(1L, 2L, 3L, 5L, 7L, 11L);
@@ -60,6 +63,7 @@ public class ThreadModeTests {
         boolean actualValue = test.multiThreadFinder(numbers, 3);
         Assertions.assertEquals(expectedValue, actualValue);
     }
+
     @Test
     public void fourThreadShortOnlyPrimeTest() {
         List<Long> numbers = Arrays.asList(2L, 3L, 5L);
@@ -152,7 +156,8 @@ public class ThreadModeTests {
 
     @Test
     public void sevenThreadLongNotPrimeTest() {
-        List<Long> numbers = Arrays.asList(2L, 3L, 5L, 4L, 6L, 1L, 13L, 2L, 3L, 5L, 4L, 6L, 1L, 13L);
+        List<Long> numbers =
+                Arrays.asList(2L, 3L, 5L, 4L, 6L, 1L, 13L, 2L, 3L, 5L, 4L, 6L, 1L, 13L);
         ThreadMode test = new ThreadMode();
         boolean expectedValue = true;
         boolean actualValue = test.multiThreadFinder(numbers, 7);
@@ -179,7 +184,8 @@ public class ThreadModeTests {
 
     @Test
     public void eightThreadLongNotPrimeTest() {
-        List<Long> numbers = Arrays.asList(2L, 3L, 5L, 4L, 6L, 1L, 13L, 2L, 3L, 5L, 4L, 6L, 1L, 13L);
+        List<Long> numbers =
+                Arrays.asList(2L, 3L, 5L, 4L, 6L, 1L, 13L, 2L, 3L, 5L, 4L, 6L, 1L, 13L);
         ThreadMode test = new ThreadMode();
         boolean expectedValue = true;
         boolean actualValue = test.multiThreadFinder(numbers, 8);
