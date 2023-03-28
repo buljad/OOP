@@ -23,7 +23,7 @@ public class ComparingOverallTests {
 
     private List<Long> notPrimeNumbersListInit() {
         List<Long> notPrimeNumbersList = new ArrayList<>();
-        for(int i = 0; i < 1000000; i++) {
+        for (int i = 0; i < 1000000; i++) {
             notPrimeNumbersList.add(2000302L);
         }
         return notPrimeNumbersList;
@@ -132,7 +132,8 @@ public class ComparingOverallTests {
         ThreadMode test = new ThreadMode();
         boolean expectedValue = true;
         boolean actualValue = test.multiThreadFinder(numbers, 7);
-        System.out.println("7 thread small:" + (System.currentTimeMillis() - begTime)); System.out.println(System.currentTimeMillis() - begTime);
+        System.out.println("7 thread small:" + (System.currentTimeMillis() - begTime));
+        System.out.println(System.currentTimeMillis() - begTime);
         Assertions.assertEquals(expectedValue, actualValue);
     }
 
@@ -149,7 +150,7 @@ public class ComparingOverallTests {
     }
 
     @Test
-    public void SequentialBigPrimeTest() {
+    public void sequentialBigPrimeTest() {
         long begTime = System.currentTimeMillis();
         SequentialMode test = new SequentialMode();
         boolean expectedValue = false;
@@ -159,7 +160,7 @@ public class ComparingOverallTests {
     }
 
     @Test
-    public void SequentialBigNotPrimeTest() {
+    public void sequentialBigNotPrimeTest() {
         long begTime = System.currentTimeMillis();
         SequentialMode test = new SequentialMode();
         boolean expectedValue = true;
@@ -169,7 +170,7 @@ public class ComparingOverallTests {
     }
 
     @Test
-    public void ParallelStreamBigPrimeTest() {
+    public void parallelStreamBigPrimeTest() {
         long begTime = System.currentTimeMillis();
         boolean expectedValue = false;
         boolean actualValue = ParallelStreamMode.parallelStreamFinder(primeNumbersList);
@@ -178,11 +179,12 @@ public class ComparingOverallTests {
     }
 
     @Test
-    public void ParallelStreamBigNotPrimeTest() {
+    public void parallelStreamBigNotPrimeTest() {
         long begTime = System.currentTimeMillis();
         boolean expectedValue = true;
         boolean actualValue = ParallelStreamMode.parallelStreamFinder(notPrimeNumbersList);
-        System.out.println("parallel stream big not prime:" + (System.currentTimeMillis() - begTime));
+        System.out.println("parallel stream big not prime:"
+                + (System.currentTimeMillis() - begTime));
         Assertions.assertEquals(expectedValue, actualValue);
     }
 
