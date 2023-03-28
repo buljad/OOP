@@ -1,29 +1,29 @@
 package ru.nsu.izhuravskii;
 
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
 
 public class ComparingOverallTests {
-    private final List<Long> PrimeNumbersList = PrimeNumbersListInit();
-    private final List<Long> NotPrimeNumbersList = NotPrimeNumbersListInit();
+    private final List<Long> primeNumbersList = PrimeNumbersListInit();
+    private final List<Long> notPrimeNumbersList = NotPrimeNumbersListInit();
     private List<Long> PrimeNumbersListInit() {
-        List<Long> PrimeNumbersList = new ArrayList<>();
+        List<Long> primeNumbersList = new ArrayList<>();
         for(int i = 0; i < 1000000; i++) {
-            PrimeNumbersList.add(2000303L);
+            primeNumbersList.add(2000303L);
         }
-        return PrimeNumbersList;
+        return primeNumbersList;
     }
 
     private List<Long> NotPrimeNumbersListInit() {
-        List<Long> NotPrimeNumbersList = new ArrayList<>();
+        List<Long> notPrimeNumbersList = new ArrayList<>();
         for(int i = 0; i < 1000000; i++) {
-            NotPrimeNumbersList.add(2000302L);
+            notPrimeNumbersList.add(2000302L);
         }
-        return NotPrimeNumbersList;
+        return notPrimeNumbersList;
     }
 
     @Test
@@ -140,7 +140,7 @@ public class ComparingOverallTests {
         long begTime = System.currentTimeMillis();
         SequentialMode test = new SequentialMode();
         boolean expectedValue = false;
-        boolean actualValue = test.sequentialFinder(PrimeNumbersList);
+        boolean actualValue = test.sequentialFinder(primeNumbersList);
         System.out.println("sequential big prime:" + (System.currentTimeMillis() - begTime));
         Assertions.assertEquals(expectedValue, actualValue);
     }
@@ -150,7 +150,7 @@ public class ComparingOverallTests {
         long begTime = System.currentTimeMillis();
         SequentialMode test = new SequentialMode();
         boolean expectedValue = true;
-        boolean actualValue = test.sequentialFinder(NotPrimeNumbersList);
+        boolean actualValue = test.sequentialFinder(notPrimeNumbersList);
         System.out.println("sequential big not prime:" + (System.currentTimeMillis() - begTime));
         Assertions.assertEquals(expectedValue, actualValue);
     }
@@ -159,7 +159,7 @@ public class ComparingOverallTests {
     public void ParallelStreamBigPrimeTest() {
         long begTime = System.currentTimeMillis();
         boolean expectedValue = false;
-        boolean actualValue = ParallelStreamMode.parallelStreamFinder(PrimeNumbersList);
+        boolean actualValue = ParallelStreamMode.parallelStreamFinder(primeNumbersList);
         System.out.println("parallel stream big prime:" + (System.currentTimeMillis() - begTime));
         Assertions.assertEquals(expectedValue, actualValue);
     }
@@ -168,7 +168,7 @@ public class ComparingOverallTests {
     public void ParallelStreamBigNotPrimeTest() {
         long begTime = System.currentTimeMillis();
         boolean expectedValue = true;
-        boolean actualValue = ParallelStreamMode.parallelStreamFinder(NotPrimeNumbersList);
+        boolean actualValue = ParallelStreamMode.parallelStreamFinder(notPrimeNumbersList);
         System.out.println("parallel stream big not prime:" + (System.currentTimeMillis() - begTime));
         Assertions.assertEquals(expectedValue, actualValue);
     }
@@ -178,7 +178,7 @@ public class ComparingOverallTests {
         long begTime = System.currentTimeMillis();
         ThreadMode test = new ThreadMode();
         boolean expectedValue = false;
-        boolean actualValue = test.multiThreadFinder(PrimeNumbersList, 1);
+        boolean actualValue = test.multiThreadFinder(primeNumbersList, 1);
         System.out.println("1 thread big prime:" + (System.currentTimeMillis() - begTime));
         Assertions.assertEquals(expectedValue, actualValue);
     }
@@ -188,7 +188,7 @@ public class ComparingOverallTests {
         long begTime = System.currentTimeMillis();
         ThreadMode test = new ThreadMode();
         boolean expectedValue = true;
-        boolean actualValue = test.multiThreadFinder(NotPrimeNumbersList, 1);
+        boolean actualValue = test.multiThreadFinder(notPrimeNumbersList, 1);
         System.out.println("1 thread big not prime:" + (System.currentTimeMillis() - begTime));
         Assertions.assertEquals(expectedValue, actualValue);
     }
@@ -198,7 +198,7 @@ public class ComparingOverallTests {
         long begTime = System.currentTimeMillis();
         ThreadMode test = new ThreadMode();
         boolean expectedValue = false;
-        boolean actualValue = test.multiThreadFinder(PrimeNumbersList, 2);
+        boolean actualValue = test.multiThreadFinder(primeNumbersList, 2);
         System.out.println("2 thread big prime:" + (System.currentTimeMillis() - begTime));
         Assertions.assertEquals(expectedValue, actualValue);
     }
@@ -208,7 +208,7 @@ public class ComparingOverallTests {
         long begTime = System.currentTimeMillis();
         ThreadMode test = new ThreadMode();
         boolean expectedValue = true;
-        boolean actualValue = test.multiThreadFinder(NotPrimeNumbersList, 2);
+        boolean actualValue = test.multiThreadFinder(notPrimeNumbersList, 2);
         System.out.println("2 thread big not prime:" + (System.currentTimeMillis() - begTime));
         Assertions.assertEquals(expectedValue, actualValue);
     }
@@ -218,7 +218,7 @@ public class ComparingOverallTests {
         long begTime = System.currentTimeMillis();
         ThreadMode test = new ThreadMode();
         boolean expectedValue = false;
-        boolean actualValue = test.multiThreadFinder(PrimeNumbersList, 3);
+        boolean actualValue = test.multiThreadFinder(primeNumbersList, 3);
         System.out.println("3 thread big prime:" + (System.currentTimeMillis() - begTime));
         Assertions.assertEquals(expectedValue, actualValue);
     }
@@ -228,7 +228,7 @@ public class ComparingOverallTests {
         long begTime = System.currentTimeMillis();
         ThreadMode test = new ThreadMode();
         boolean expectedValue = true;
-        boolean actualValue = test.multiThreadFinder(NotPrimeNumbersList, 3);
+        boolean actualValue = test.multiThreadFinder(notPrimeNumbersList, 3);
         System.out.println("3 thread big not prime:" + (System.currentTimeMillis() - begTime));
         Assertions.assertEquals(expectedValue, actualValue);
     }
@@ -238,7 +238,7 @@ public class ComparingOverallTests {
         long begTime = System.currentTimeMillis();
         ThreadMode test = new ThreadMode();
         boolean expectedValue = false;
-        boolean actualValue = test.multiThreadFinder(PrimeNumbersList, 4);
+        boolean actualValue = test.multiThreadFinder(primeNumbersList, 4);
         System.out.println("4 thread big prime:" + (System.currentTimeMillis() - begTime));
         Assertions.assertEquals(expectedValue, actualValue);
     }
@@ -248,7 +248,7 @@ public class ComparingOverallTests {
         long begTime = System.currentTimeMillis();
         ThreadMode test = new ThreadMode();
         boolean expectedValue = true;
-        boolean actualValue = test.multiThreadFinder(NotPrimeNumbersList, 4);
+        boolean actualValue = test.multiThreadFinder(notPrimeNumbersList, 4);
         System.out.println("4 thread big not prime:" + (System.currentTimeMillis() - begTime));
         Assertions.assertEquals(expectedValue, actualValue);
     }
@@ -258,7 +258,7 @@ public class ComparingOverallTests {
         long begTime = System.currentTimeMillis();
         ThreadMode test = new ThreadMode();
         boolean expectedValue = false;
-        boolean actualValue = test.multiThreadFinder(PrimeNumbersList, 5);
+        boolean actualValue = test.multiThreadFinder(primeNumbersList, 5);
         System.out.println("5 thread big prime:" + (System.currentTimeMillis() - begTime));
         Assertions.assertEquals(expectedValue, actualValue);
     }
@@ -268,7 +268,7 @@ public class ComparingOverallTests {
         long begTime = System.currentTimeMillis();
         ThreadMode test = new ThreadMode();
         boolean expectedValue = true;
-        boolean actualValue = test.multiThreadFinder(NotPrimeNumbersList, 5);
+        boolean actualValue = test.multiThreadFinder(notPrimeNumbersList, 5);
         System.out.println("5 thread big not prime:" + (System.currentTimeMillis() - begTime));
         Assertions.assertEquals(expectedValue, actualValue);
     }
@@ -278,7 +278,7 @@ public class ComparingOverallTests {
         long begTime = System.currentTimeMillis();
         ThreadMode test = new ThreadMode();
         boolean expectedValue = false;
-        boolean actualValue = test.multiThreadFinder(PrimeNumbersList, 6);
+        boolean actualValue = test.multiThreadFinder(primeNumbersList, 6);
         System.out.println("6 thread big prime:" + (System.currentTimeMillis() - begTime));
         Assertions.assertEquals(expectedValue, actualValue);
     }
@@ -288,7 +288,7 @@ public class ComparingOverallTests {
         long begTime = System.currentTimeMillis();
         ThreadMode test = new ThreadMode();
         boolean expectedValue = true;
-        boolean actualValue = test.multiThreadFinder(NotPrimeNumbersList, 6);
+        boolean actualValue = test.multiThreadFinder(notPrimeNumbersList, 6);
         System.out.println("6 thread big not prime:" + (System.currentTimeMillis() - begTime));
         Assertions.assertEquals(expectedValue, actualValue);
     }
@@ -298,7 +298,7 @@ public class ComparingOverallTests {
         long begTime = System.currentTimeMillis();
         ThreadMode test = new ThreadMode();
         boolean expectedValue = false;
-        boolean actualValue = test.multiThreadFinder(PrimeNumbersList, 7);
+        boolean actualValue = test.multiThreadFinder(primeNumbersList, 7);
         System.out.println("7 thread big prime:" + (System.currentTimeMillis() - begTime));
         Assertions.assertEquals(expectedValue, actualValue);
     }
@@ -308,7 +308,7 @@ public class ComparingOverallTests {
         long begTime = System.currentTimeMillis();
         ThreadMode test = new ThreadMode();
         boolean expectedValue = true;
-        boolean actualValue = test.multiThreadFinder(NotPrimeNumbersList, 7);
+        boolean actualValue = test.multiThreadFinder(notPrimeNumbersList, 7);
         System.out.println("7 thread big not prime:" + (System.currentTimeMillis() - begTime));
         Assertions.assertEquals(expectedValue, actualValue);
     }
@@ -318,7 +318,7 @@ public class ComparingOverallTests {
         long begTime = System.currentTimeMillis();
         ThreadMode test = new ThreadMode();
         boolean expectedValue = false;
-        boolean actualValue = test.multiThreadFinder(PrimeNumbersList, 8);
+        boolean actualValue = test.multiThreadFinder(primeNumbersList, 8);
         System.out.println("8 thread big prime:" + (System.currentTimeMillis() - begTime));
         Assertions.assertEquals(expectedValue, actualValue);
     }
@@ -328,7 +328,7 @@ public class ComparingOverallTests {
         long begTime = System.currentTimeMillis();
         ThreadMode test = new ThreadMode();
         boolean expectedValue = true;
-        boolean actualValue = test.multiThreadFinder(NotPrimeNumbersList, 8);
+        boolean actualValue = test.multiThreadFinder(notPrimeNumbersList, 8);
         System.out.println("8 thread big not prime:" + (System.currentTimeMillis() - begTime));
         Assertions.assertEquals(expectedValue, actualValue);
     }
@@ -338,7 +338,7 @@ public class ComparingOverallTests {
         long begTime = System.currentTimeMillis();
         ThreadMode test = new ThreadMode();
         boolean expectedValue = false;
-        boolean actualValue = test.multiThreadFinder(PrimeNumbersList, 9);
+        boolean actualValue = test.multiThreadFinder(primeNumbersList, 9);
         System.out.println("9 thread big prime:" + (System.currentTimeMillis() - begTime));
         Assertions.assertEquals(expectedValue, actualValue);
     }
@@ -348,7 +348,7 @@ public class ComparingOverallTests {
         long begTime = System.currentTimeMillis();
         ThreadMode test = new ThreadMode();
         boolean expectedValue = true;
-        boolean actualValue = test.multiThreadFinder(NotPrimeNumbersList, 9);
+        boolean actualValue = test.multiThreadFinder(notPrimeNumbersList, 9);
         System.out.println("9 thread big not prime:" + (System.currentTimeMillis() - begTime));
         Assertions.assertEquals(expectedValue, actualValue);
     }
@@ -358,7 +358,7 @@ public class ComparingOverallTests {
         long begTime = System.currentTimeMillis();
         ThreadMode test = new ThreadMode();
         boolean expectedValue = false;
-        boolean actualValue = test.multiThreadFinder(PrimeNumbersList, 10);
+        boolean actualValue = test.multiThreadFinder(primeNumbersList, 10);
         System.out.println("10 thread big prime:" + (System.currentTimeMillis() - begTime));
         Assertions.assertEquals(expectedValue, actualValue);
     }
@@ -368,7 +368,7 @@ public class ComparingOverallTests {
         long begTime = System.currentTimeMillis();
         ThreadMode test = new ThreadMode();
         boolean expectedValue = true;
-        boolean actualValue = test.multiThreadFinder(NotPrimeNumbersList, 10);
+        boolean actualValue = test.multiThreadFinder(notPrimeNumbersList, 10);
         System.out.println("10 thread big not prime:" + (System.currentTimeMillis() - begTime));
         Assertions.assertEquals(expectedValue, actualValue);
     }
@@ -378,7 +378,7 @@ public class ComparingOverallTests {
         long begTime = System.currentTimeMillis();
         ThreadMode test = new ThreadMode();
         boolean expectedValue = false;
-        boolean actualValue = test.multiThreadFinder(PrimeNumbersList, 11);
+        boolean actualValue = test.multiThreadFinder(primeNumbersList, 11);
         System.out.println("11 thread big prime:" + (System.currentTimeMillis() - begTime));
         Assertions.assertEquals(expectedValue, actualValue);
     }
@@ -388,7 +388,7 @@ public class ComparingOverallTests {
         long begTime = System.currentTimeMillis();
         ThreadMode test = new ThreadMode();
         boolean expectedValue = true;
-        boolean actualValue = test.multiThreadFinder(NotPrimeNumbersList, 11);
+        boolean actualValue = test.multiThreadFinder(notPrimeNumbersList, 11);
         System.out.println("11 thread big not prime:" + (System.currentTimeMillis() - begTime));
         Assertions.assertEquals(expectedValue, actualValue);
     }
@@ -398,7 +398,7 @@ public class ComparingOverallTests {
         long begTime = System.currentTimeMillis();
         ThreadMode test = new ThreadMode();
         boolean expectedValue = false;
-        boolean actualValue = test.multiThreadFinder(PrimeNumbersList, 12);
+        boolean actualValue = test.multiThreadFinder(primeNumbersList, 12);
         System.out.println("12 thread big prime:" + (System.currentTimeMillis() - begTime));
         Assertions.assertEquals(expectedValue, actualValue);
     }
@@ -408,7 +408,7 @@ public class ComparingOverallTests {
         long begTime = System.currentTimeMillis();
         ThreadMode test = new ThreadMode();
         boolean expectedValue = true;
-        boolean actualValue = test.multiThreadFinder(NotPrimeNumbersList, 12);
+        boolean actualValue = test.multiThreadFinder(notPrimeNumbersList, 12);
         System.out.println("12 thread big not prime:" + (System.currentTimeMillis() - begTime));
         Assertions.assertEquals(expectedValue, actualValue);
     }
@@ -418,7 +418,7 @@ public class ComparingOverallTests {
         long begTime = System.currentTimeMillis();
         ThreadMode test = new ThreadMode();
         boolean expectedValue = false;
-        boolean actualValue = test.multiThreadFinder(PrimeNumbersList, 13);
+        boolean actualValue = test.multiThreadFinder(primeNumbersList, 13);
         System.out.println("13 thread big prime:" + (System.currentTimeMillis() - begTime));
         Assertions.assertEquals(expectedValue, actualValue);
     }
@@ -428,7 +428,7 @@ public class ComparingOverallTests {
         long begTime = System.currentTimeMillis();
         ThreadMode test = new ThreadMode();
         boolean expectedValue = true;
-        boolean actualValue = test.multiThreadFinder(NotPrimeNumbersList, 13);
+        boolean actualValue = test.multiThreadFinder(notPrimeNumbersList, 13);
         System.out.println("13 thread big not prime:" + (System.currentTimeMillis() - begTime));
         Assertions.assertEquals(expectedValue, actualValue);
     }
@@ -438,7 +438,7 @@ public class ComparingOverallTests {
         long begTime = System.currentTimeMillis();
         ThreadMode test = new ThreadMode();
         boolean expectedValue = false;
-        boolean actualValue = test.multiThreadFinder(PrimeNumbersList, 14);
+        boolean actualValue = test.multiThreadFinder(primeNumbersList, 14);
         System.out.println("14 thread big prime:" + (System.currentTimeMillis() - begTime));
         Assertions.assertEquals(expectedValue, actualValue);
     }
@@ -448,7 +448,7 @@ public class ComparingOverallTests {
         long begTime = System.currentTimeMillis();
         ThreadMode test = new ThreadMode();
         boolean expectedValue = true;
-        boolean actualValue = test.multiThreadFinder(NotPrimeNumbersList, 14);
+        boolean actualValue = test.multiThreadFinder(notPrimeNumbersList, 14);
         System.out.println("14 thread big not prime:" + (System.currentTimeMillis() - begTime));
         Assertions.assertEquals(expectedValue, actualValue);
     }
@@ -458,7 +458,7 @@ public class ComparingOverallTests {
         long begTime = System.currentTimeMillis();
         ThreadMode test = new ThreadMode();
         boolean expectedValue = false;
-        boolean actualValue = test.multiThreadFinder(PrimeNumbersList, 15);
+        boolean actualValue = test.multiThreadFinder(primeNumbersList, 15);
         System.out.println("15 thread big not prime:" + (System.currentTimeMillis() - begTime));
         Assertions.assertEquals(expectedValue, actualValue);
     }
@@ -468,7 +468,7 @@ public class ComparingOverallTests {
         long begTime = System.currentTimeMillis();
         ThreadMode test = new ThreadMode();
         boolean expectedValue = true;
-        boolean actualValue = test.multiThreadFinder(NotPrimeNumbersList, 15);
+        boolean actualValue = test.multiThreadFinder(notPrimeNumbersList, 15);
         System.out.println("15 thread big not prime:" + (System.currentTimeMillis() - begTime));
         Assertions.assertEquals(expectedValue, actualValue);
     }
@@ -478,7 +478,7 @@ public class ComparingOverallTests {
         long begTime = System.currentTimeMillis();
         ThreadMode test = new ThreadMode();
         boolean expectedValue = false;
-        boolean actualValue = test.multiThreadFinder(PrimeNumbersList, 16);
+        boolean actualValue = test.multiThreadFinder(primeNumbersList, 16);
         System.out.println("16 thread big prime:" + (System.currentTimeMillis() - begTime));
         Assertions.assertEquals(expectedValue, actualValue);
     }
@@ -488,7 +488,7 @@ public class ComparingOverallTests {
         long begTime = System.currentTimeMillis();
         ThreadMode test = new ThreadMode();
         boolean expectedValue = true;
-        boolean actualValue = test.multiThreadFinder(NotPrimeNumbersList, 16);
+        boolean actualValue = test.multiThreadFinder(notPrimeNumbersList, 16);
         System.out.println("16 thread big not prime:" + (System.currentTimeMillis() - begTime));
         Assertions.assertEquals(expectedValue, actualValue);
     }
@@ -498,7 +498,7 @@ public class ComparingOverallTests {
         long begTime = System.currentTimeMillis();
         ThreadMode test = new ThreadMode();
         boolean expectedValue = false;
-        boolean actualValue = test.multiThreadFinder(PrimeNumbersList, 50);
+        boolean actualValue = test.multiThreadFinder(primeNumbersList, 50);
         System.out.println("50 thread big prime:" + (System.currentTimeMillis() - begTime));
         Assertions.assertEquals(expectedValue, actualValue);
     }
@@ -508,7 +508,7 @@ public class ComparingOverallTests {
         long begTime = System.currentTimeMillis();
         ThreadMode test = new ThreadMode();
         boolean expectedValue = true;
-        boolean actualValue = test.multiThreadFinder(NotPrimeNumbersList, 50);
+        boolean actualValue = test.multiThreadFinder(notPrimeNumbersList, 50);
         System.out.println("50 thread big not prime:" + (System.currentTimeMillis() - begTime));
         Assertions.assertEquals(expectedValue, actualValue);
     }
@@ -518,7 +518,7 @@ public class ComparingOverallTests {
         long begTime = System.currentTimeMillis();
         ThreadMode test = new ThreadMode();
         boolean expectedValue = false;
-        boolean actualValue = test.multiThreadFinder(PrimeNumbersList, 100);
+        boolean actualValue = test.multiThreadFinder(primeNumbersList, 100);
         System.out.println("100 thread big prime:" + (System.currentTimeMillis() - begTime));
         Assertions.assertEquals(expectedValue, actualValue);
     }
@@ -528,7 +528,7 @@ public class ComparingOverallTests {
         long begTime = System.currentTimeMillis();
         ThreadMode test = new ThreadMode();
         boolean expectedValue = true;
-        boolean actualValue = test.multiThreadFinder(NotPrimeNumbersList, 100);
+        boolean actualValue = test.multiThreadFinder(notPrimeNumbersList, 100);
         System.out.println("100 thread big not prime:" + (System.currentTimeMillis() - begTime));
         Assertions.assertEquals(expectedValue, actualValue);
     }
