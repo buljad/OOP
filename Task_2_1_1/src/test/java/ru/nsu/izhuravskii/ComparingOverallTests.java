@@ -6,19 +6,22 @@ import java.util.List;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-
+/**
+ * Tests for comparing modes' time of work.
+ */
 public class ComparingOverallTests {
-    private final List<Long> primeNumbersList = PrimeNumbersListInit();
-    private final List<Long> notPrimeNumbersList = NotPrimeNumbersListInit();
-    private List<Long> PrimeNumbersListInit() {
+    private final List<Long> primeNumbersList = primeNumbersListInit();
+    private final List<Long> notPrimeNumbersList = notPrimeNumbersListInit();
+
+    private List<Long> primeNumbersListInit() {
         List<Long> primeNumbersList = new ArrayList<>();
-        for(int i = 0; i < 1000000; i++) {
+        for (int i = 0; i < 1000000; i++) {
             primeNumbersList.add(2000303L);
         }
         return primeNumbersList;
     }
 
-    private List<Long> NotPrimeNumbersListInit() {
+    private List<Long> notPrimeNumbersListInit() {
         List<Long> notPrimeNumbersList = new ArrayList<>();
         for(int i = 0; i < 1000000; i++) {
             notPrimeNumbersList.add(2000302L);
@@ -27,9 +30,10 @@ public class ComparingOverallTests {
     }
 
     @Test
-    public void SequentialSmallTest() {
+    public void sequentialSmallTest() {
         long begTime = System.currentTimeMillis();
-        List<Long> numbers = Arrays.asList(22L, 3L, 5L, 4L, 6L, 1L, 13L, 2L, 3L, 5L, 4L, 6L, 1L, 13L);
+        List<Long> numbers =
+                Arrays.asList(22L, 3L, 5L, 4L, 6L, 1L, 13L, 2L, 3L, 5L, 4L, 6L, 1L, 13L);
         SequentialMode test = new SequentialMode();
         boolean expectedValue = true;
         boolean actualValue = test.sequentialFinder(numbers);
@@ -38,9 +42,10 @@ public class ComparingOverallTests {
     }
 
     @Test
-    public void ParallelStreamSmallTest() {
+    public void parallelStreamSmallTest() {
         long begTime = System.currentTimeMillis();
-        List<Long> numbers = Arrays.asList(2L, 3L, 5L, 4L, 6L, 1L, 13L, 2L, 3L, 5L, 4L, 6L, 1L, 13L);
+        List<Long> numbers =
+                Arrays.asList(2L, 3L, 5L, 4L, 6L, 1L, 13L, 2L, 3L, 5L, 4L, 6L, 1L, 13L);
         boolean expectedValue = true;
         boolean actualValue = ParallelStreamMode.parallelStreamFinder(numbers);
         System.out.println("parallel stream small:" + (System.currentTimeMillis() - begTime));
@@ -50,7 +55,8 @@ public class ComparingOverallTests {
     @Test
     public void oneThreadSmallTest() {
         long begTime = System.currentTimeMillis();
-        List<Long> numbers = Arrays.asList(2L, 3L, 5L, 4L, 6L, 1L, 13L, 2L, 3L, 5L, 4L, 6L, 1L, 13L);
+        List<Long> numbers =
+                Arrays.asList(2L, 3L, 5L, 4L, 6L, 1L, 13L, 2L, 3L, 5L, 4L, 6L, 1L, 13L);
         ThreadMode test = new ThreadMode();
         boolean expectedValue = true;
         boolean actualValue = test.multiThreadFinder(numbers, 1);
@@ -61,7 +67,8 @@ public class ComparingOverallTests {
     @Test
     public void twoThreadSmallTest() {
         long begTime = System.currentTimeMillis();
-        List<Long> numbers = Arrays.asList(2L, 3L, 5L, 4L, 6L, 1L, 13L, 2L, 3L, 5L, 4L, 6L, 1L, 13L);
+        List<Long> numbers =
+                Arrays.asList(2L, 3L, 5L, 4L, 6L, 1L, 13L, 2L, 3L, 5L, 4L, 6L, 1L, 13L);
         ThreadMode test = new ThreadMode();
         boolean expectedValue = true;
         boolean actualValue = test.multiThreadFinder(numbers, 2);
@@ -72,7 +79,8 @@ public class ComparingOverallTests {
     @Test
     public void threeThreadSmallTest() {
         long begTime = System.currentTimeMillis();
-        List<Long> numbers = Arrays.asList(2L, 3L, 5L, 4L, 6L, 1L, 13L, 2L, 3L, 5L, 4L, 6L, 1L, 13L);
+        List<Long> numbers =
+                Arrays.asList(2L, 3L, 5L, 4L, 6L, 1L, 13L, 2L, 3L, 5L, 4L, 6L, 1L, 13L);
         ThreadMode test = new ThreadMode();
         boolean expectedValue = true;
         boolean actualValue = test.multiThreadFinder(numbers, 3);
@@ -83,7 +91,8 @@ public class ComparingOverallTests {
     @Test
     public void fourThreadSmallTest() {
         long begTime = System.currentTimeMillis();
-        List<Long> numbers = Arrays.asList(2L, 3L, 5L, 4L, 6L, 1L, 13L, 2L, 3L, 5L, 4L, 6L, 1L, 13L);
+        List<Long> numbers =
+                Arrays.asList(2L, 3L, 5L, 4L, 6L, 1L, 13L, 2L, 3L, 5L, 4L, 6L, 1L, 13L);
         ThreadMode test = new ThreadMode();
         boolean expectedValue = true;
         boolean actualValue = test.multiThreadFinder(numbers, 4);
@@ -94,7 +103,8 @@ public class ComparingOverallTests {
     @Test
     public void fiveThreadSmallTest() {
         long begTime = System.currentTimeMillis();
-        List<Long> numbers = Arrays.asList(2L, 3L, 5L, 4L, 6L, 1L, 13L, 2L, 3L, 5L, 4L, 6L, 1L, 13L);
+        List<Long> numbers =
+                Arrays.asList(2L, 3L, 5L, 4L, 6L, 1L, 13L, 2L, 3L, 5L, 4L, 6L, 1L, 13L);
         ThreadMode test = new ThreadMode();
         boolean expectedValue = true;
         boolean actualValue = test.multiThreadFinder(numbers, 5);
@@ -105,7 +115,8 @@ public class ComparingOverallTests {
     @Test
     public void sixThreadSmallTest() {
         long begTime = System.currentTimeMillis();
-        List<Long> numbers = Arrays.asList(2L, 3L, 5L, 4L, 6L, 1L, 13L, 2L, 3L, 5L, 4L, 6L, 1L, 13L);
+        List<Long> numbers =
+                Arrays.asList(2L, 3L, 5L, 4L, 6L, 1L, 13L, 2L, 3L, 5L, 4L, 6L, 1L, 13L);
         ThreadMode test = new ThreadMode();
         boolean expectedValue = true;
         boolean actualValue = test.multiThreadFinder(numbers, 6);
@@ -116,7 +127,8 @@ public class ComparingOverallTests {
     @Test
     public void sevenThreadSmallTest() {
         long begTime = System.currentTimeMillis();
-        List<Long> numbers = Arrays.asList(2L, 3L, 5L, 4L, 6L, 1L, 13L, 2L, 3L, 5L, 4L, 6L, 1L, 13L);
+        List<Long> numbers =
+                Arrays.asList(2L, 3L, 5L, 4L, 6L, 1L, 13L, 2L, 3L, 5L, 4L, 6L, 1L, 13L);
         ThreadMode test = new ThreadMode();
         boolean expectedValue = true;
         boolean actualValue = test.multiThreadFinder(numbers, 7);
@@ -127,7 +139,8 @@ public class ComparingOverallTests {
     @Test
     public void eightThreadSmallTest() {
         long begTime = System.currentTimeMillis();
-        List<Long> numbers = Arrays.asList(2L, 3L, 5L, 4L, 6L, 1L, 13L, 2L, 3L, 5L, 4L, 6L, 1L, 13L);
+        List<Long> numbers =
+                Arrays.asList(2L, 3L, 5L, 4L, 6L, 1L, 13L, 2L, 3L, 5L, 4L, 6L, 1L, 13L);
         ThreadMode test = new ThreadMode();
         boolean expectedValue = true;
         boolean actualValue = test.multiThreadFinder(numbers, 8);

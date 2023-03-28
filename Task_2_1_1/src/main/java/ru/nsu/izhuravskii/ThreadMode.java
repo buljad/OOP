@@ -34,6 +34,7 @@ public class ThreadMode {
     /**
      * This method is about separating list of numbers to threads
      * and finding a non-prime number using ThreadFinder method.
+     *
      * @param numbers - list of numbers to check.
      * @param numberOfThreads - quantity of threads to separate.
      * @return - returns boolean value:
@@ -66,6 +67,7 @@ public class ThreadMode {
 
     /**
      * This method's duty is to check how all the threads ended their work.
+     *
      * @param threads - list of threads.
      */
     public void checkThreads(ThreadFinder[] threads) {
