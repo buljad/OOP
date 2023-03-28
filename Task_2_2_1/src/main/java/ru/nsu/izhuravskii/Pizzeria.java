@@ -2,19 +2,31 @@ package ru.nsu.izhuravskii;
 
 import java.util.List;
 import java.util.Queue;
+import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 
 public class Pizzeria {
     private List<Cook> cooks;
     private List<Deliver> delivers;
-    private final Queue<Order> orders = new LinkedBlockingQueue<>();
+    private static final BlockingQueue<Order> orders = new LinkedBlockingQueue<>();
+    private static BlockingQueue<Order> stock;
     public Pizzeria() {
-        Queue<String> stock = new LinkedBlockingQueue<>(123);
+        BlockingQueue<String> stock = new LinkedBlockingQueue<>(123);
     }
     public void addOrder(Order order) {
-        this.orders.add(order);
+        orders.add(order);
     }
 
+    public static Order takeOrder() throws InterruptedException {
+        return(orders.take());
+    }
+
+    public static void stockOrder(Order order) throws InterruptedException {
+        stock.put(order);
+        order.setStatus(Order.Status.IN_STOCK);
+        System.out.println(order);
+    }
+    /*
     private List<Cook> hireCooks() {
 
         return null;
@@ -24,5 +36,5 @@ public class Pizzeria {
 
         return null;
     }
-
+    */
 }

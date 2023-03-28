@@ -1,7 +1,7 @@
 package ru.nsu.izhuravskii;
 
 public class Order {
-    public int id;
+    private final int id;
     public enum Status {
         ORDERED,
         COOKING,
