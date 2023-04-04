@@ -4,10 +4,10 @@ import java.util.concurrent.TimeUnit;
 
 public class Cook implements Runnable {
     String name;
-    int experience;
-    public Cook(String name, int experience) {
+    int skill;
+    public Cook(String name, int skill) {
         this.name = name;
-        this.experience = experience;
+        this.skill = skill;
     }
 
     @Override
@@ -16,7 +16,7 @@ public class Cook implements Runnable {
             Order order = Pizzeria.takeOrder();
             order.setStatus(Order.Status.COOKING);
             System.out.println(order);
-            TimeUnit.SECONDS.sleep(10 / experience);
+            TimeUnit.SECONDS.sleep(10 / skill);
             order.setStatus(Order.Status.COOKED);
             System.out.println(order);
             Pizzeria.stockOrder(order);

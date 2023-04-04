@@ -26,6 +26,10 @@ public class Pizzeria {
         order.setStatus(Order.Status.IN_STOCK);
         System.out.println(order);
     }
+
+    public static Order takeFromStock() throws InterruptedException {
+        return(stock.take());
+    }
     /*
     private List<Cook> hireCooks() {
 
