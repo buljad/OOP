@@ -9,15 +9,20 @@ public class Cook implements Runnable {
         this.name = name;
         this.skill = skill;
     }
-
+    boolean isCooking = false;
+    public boolean isCooking() {
+        return isCooking;
+    }
     @Override
     public void run() {
         try {
             Order order = Pizzeria.takeOrder();
+            isCooking = true;
             order.setStatus(Order.Status.COOKING);
             System.out.println(order);
             TimeUnit.SECONDS.sleep(10 / skill);
             order.setStatus(Order.Status.COOKED);
+            isCooking = false;
             System.out.println(order);
             Pizzeria.stockOrder(order);
         } catch (InterruptedException e) {
