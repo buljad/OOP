@@ -2,8 +2,8 @@ package ru.nsu.izhuravskii;
 
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.Objects;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Implementation of Tree on java language.
@@ -71,12 +71,12 @@ public class Tree<T> implements Iterable<T> {
      *
      * @return - returns list of children.
      */
-    public List<Tree<T>> getChildren () {
+    public List<Tree<T>> getChildren() {
         return this.children;
     }
 
     /**
-     * Setting a type of search for Iterator(true - BFS, false - DFS)
+     * Setting a type of search for Iterator(true - BFS, false - DFS).
      *
      * @param type - return only true or false because we have only 2 variants of search.
      */
@@ -136,7 +136,7 @@ public class Tree<T> implements Iterable<T> {
      * @param val - value of the new node.
      * @return - returns new node.
      */
-    public Tree<T> addChild (T val) {
+    public Tree<T> addChild(T val) {
         Tree<T> child = new Tree<>();
         child.setValue(val);
         child.setParent(this);
@@ -149,12 +149,13 @@ public class Tree<T> implements Iterable<T> {
 
     /**
      * Same as previous, but with this method we can add a new child-node to some exact parent.
+     *
      * @param parentVertex - parent of the new node.
      * @param val - value of the child-node.
      * @return - returns new child-node.
      */
-    public Tree<T> addChild (Tree<T> parentVertex, T val) {
-        Tree <T> child = new Tree<>();
+    public Tree<T> addChild(Tree<T> parentVertex, T val) {
+        Tree<T> child = new Tree<>();
         child.setValue(val);
         child.setParent(parentVertex);
         child.children = new ArrayList<>();
@@ -165,9 +166,10 @@ public class Tree<T> implements Iterable<T> {
 
     /**
      * Method for removing a node from the tree.
+     *
      * @param index - index in the list of children of this parent vertex.
      */
-    public void removeChild (int index) {
+    public void removeChild(int index) {
         for (Tree<T> i : children.get(index).getChildren()) {
             i.setParent(parent);
             this.addChild(i.value);

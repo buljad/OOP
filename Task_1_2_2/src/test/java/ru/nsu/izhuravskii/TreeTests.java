@@ -7,6 +7,9 @@ import java.util.List;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+/**
+ * Tests for checking the correctness of working of my Tree.
+ */
 public class TreeTests {
 
     @Test

@@ -2,8 +2,8 @@ package ru.nsu.izhuravskii;
 
 import java.util.ArrayDeque;
 import java.util.ConcurrentModificationException;
-import java.util.Queue;
 import java.util.Iterator;
+import java.util.Queue;
 
 /**
  * DFS Iterator realization for iterating my tree.
