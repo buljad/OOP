@@ -29,8 +29,8 @@ public class DepthFirstSearchIterator<T> implements Iterator<T> {
     public T next() {
         Tree<T> currentVertex = stack.pop();
         if (modificationCounter != currentVertex.getModificationCounter()) {
-            throw new ConcurrentModificationException
-                    ("DON'T ADD CHANGES IN COLLECTION WHILE ITERATOR IS WORKING!");
+            throw new ConcurrentModificationException(
+                    "DON'T ADD CHANGES IN COLLECTION WHILE ITERATOR IS WORKING!");
         }
         stack.addAll(currentVertex.getChildren());
         return currentVertex.getValue();
