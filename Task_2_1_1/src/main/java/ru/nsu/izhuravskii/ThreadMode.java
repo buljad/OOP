@@ -41,7 +41,6 @@ public class ThreadMode {
      *           true if at least one number in list is not prime, else false.
      */
     public boolean multiThreadFinder(List<Long> numbers, int numberOfThreads) {
-        int maxThreads = Runtime.getRuntime().availableProcessors();
         int listLength = numbers.size();
         int partOfList;
         if (listLength > numberOfThreads) {
