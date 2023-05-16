@@ -27,7 +27,7 @@ public class Pizzeria {
         System.out.println(order);
     }
 
-    public static Order takeFromStock(int capacity) throws InterruptedException {
+    public static Order takeFromStock() throws InterruptedException {
         return(stock.take());
     }
     /*

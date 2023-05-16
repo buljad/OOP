@@ -1,0 +1,31 @@
+{
+  "stockCapacity": 15,
+  "cooks" : [
+    {
+      "name" : "kaban",
+      "skill" : "2"
+    },
+    {
+      "name" : "Bangkok",
+      "skill" : "5"
+    },
+    {
+      "name" : "ItalianoPetrucco",
+      "skill" : "10"
+    }
+  ],
+  "delivers" : [
+    {
+      "name" : "Usain Bolt",
+      "capacity" : "2"
+    },
+    {
+      "name" : "Gigachad",
+      "capacity" : "5"
+    },
+    {
+      "name" : "Lada Priora",
+      "capacity" : "10"
+    }
+  ]
+}
