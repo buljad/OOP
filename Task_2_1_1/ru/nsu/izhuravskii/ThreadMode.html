@@ -133,6 +133,12 @@ loadScripts(document, 'script');</script>
 <div class="block">This method is about separating list of numbers to threads
  and finding a non-prime number using ThreadFinder method.</div>
 </div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="ThreadMode.ThreadFinder.html" title="class in ru.nsu.izhuravskii">ThreadMode.ThreadFinder</a>[]</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#threadDivision(java.util.List,int)" class="member-name-link">threadDivision</a><wbr>(@NotNull <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Long.html" title="class or interface in java.lang" class="external-link">Long</a>&gt;&nbsp;numbers,
+ int&nbsp;numberOfThreads)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Method for dividing parts of numbers array to threads.</div>
+</div>
 </div>
 </div>
 </div>
@@ -178,6 +184,22 @@ loadScripts(document, 'script');</script>
 <dt>Returns:</dt>
 <dd>- returns boolean value:
            true if at least one number in list is not prime, else false.</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="threadDivision(java.util.List,int)">
+<h3>threadDivision</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="ThreadMode.ThreadFinder.html" title="class in ru.nsu.izhuravskii">ThreadMode.ThreadFinder</a>[]</span>&nbsp;<span class="element-name">threadDivision</span><wbr><span class="parameters">(@NotNull
+ @NotNull <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Long.html" title="class or interface in java.lang" class="external-link">Long</a>&gt;&nbsp;numbers,
+ int&nbsp;numberOfThreads)</span></div>
+<div class="block">Method for dividing parts of numbers array to threads.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>numbers</code> - - list of numbers.</dd>
+<dd><code>numberOfThreads</code> - - quantity of threads.</dd>
+<dt>Returns:</dt>
+<dd>- returns list of threads.</dd>
 </dl>
 </section>
 </li>
