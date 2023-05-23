@@ -474,7 +474,7 @@ public class ComparingOverallTests {
         ThreadMode test = new ThreadMode();
         boolean expectedValue = false;
         boolean actualValue = test.multiThreadFinder(primeNumbersList, 15);
-        System.out.println("15 thread big not prime:" + (System.currentTimeMillis() - begTime));
+        System.out.println("15 thread big prime:" + (System.currentTimeMillis() - begTime));
         Assertions.assertEquals(expectedValue, actualValue);
     }
 
