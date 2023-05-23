@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
-
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -211,7 +210,8 @@ public class ThreadModeTests {
         ThreadMode act = new ThreadMode();
         ThreadMode.ThreadFinder[] actualValue = act.threadDivision(numbers, numberOfThreads);
         List<Integer> exp = List.of(2, 2, 1, 1, 1, 1);
-        List<Integer> actual = Arrays.stream(actualValue).map(t -> t.getNumbers().size()).collect(Collectors.toList());
+        List<Integer> actual = Arrays.stream(actualValue).map(t ->
+                t.getNumbers().size()).collect(Collectors.toList());
         Assertions.assertEquals(exp, actual);
 
     }

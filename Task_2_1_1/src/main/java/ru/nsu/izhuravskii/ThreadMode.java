@@ -1,8 +1,9 @@
 package ru.nsu.izhuravskii;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * A variant of searching a non-prime number in the list using threads.
@@ -47,6 +48,10 @@ public class ThreadMode {
      */
     public boolean multiThreadFinder(List<Long> numbers, int numberOfThreads) {
         ThreadFinder[] threads = threadDivision(numbers, numberOfThreads);
+        int listLength = numbers.size();
+        if (listLength < numberOfThreads) {
+            numberOfThreads = listLength;
+        }
         for (int i = 0; i < numberOfThreads; i++) {
             threads[i].start();
         }
@@ -54,19 +59,24 @@ public class ThreadMode {
         return notPrimeFlag;
     }
 
-    public ThreadFinder[] threadDivision(List<Long> numbers, int numberOfThreads) {
+    /**
+     * Method for dividing parts of numbers array to threads.
+     * @param numbers - list of numbers.
+     * @param numberOfThreads - quantity of threads.
+     * @return - returns list of threads.
+     */
+    public ThreadFinder[] threadDivision(@NotNull List<Long> numbers, int numberOfThreads) {
         int listLength = numbers.size();
         int partOfList;
         int divCounter = 0;
         if (listLength > numberOfThreads) {
             partOfList = listLength / numberOfThreads;
+            if (listLength % numberOfThreads != 0) {
+                divCounter = listLength % numberOfThreads;
+            }
         } else {
             partOfList = 1;
             numberOfThreads = listLength;
-        }
-
-        if (listLength % numberOfThreads != 0) {
-            divCounter = listLength % numberOfThreads;
         }
         ThreadFinder[] threads = new ThreadFinder[numberOfThreads];
         for (int i = 0; i < numberOfThreads; i++) {
@@ -74,7 +84,7 @@ public class ThreadMode {
             int toIndex;
             if (divCounter > 0) {
                 toIndex = partOfList * (i + 1) + 1;
-                divCounter --;
+                divCounter--;
             } else {
                 toIndex = partOfList * (i + 1);
             }
