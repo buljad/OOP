@@ -2,6 +2,7 @@ package ru.nsu.izhuravskii;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * A variant of searching a non-prime number in the list using threads.
@@ -29,6 +30,10 @@ public class ThreadMode {
                 }
             }
         }
+
+        public List<Long> getNumbers() {
+            return numbers;
+        }
     }
 
     /**
@@ -41,24 +46,41 @@ public class ThreadMode {
      *           true if at least one number in list is not prime, else false.
      */
     public boolean multiThreadFinder(List<Long> numbers, int numberOfThreads) {
+        ThreadFinder[] threads = threadDivision(numbers, numberOfThreads);
+        for (int i = 0; i < numberOfThreads; i++) {
+            threads[i].start();
+        }
+        checkThreads(threads);
+        return notPrimeFlag;
+    }
+
+    public ThreadFinder[] threadDivision(List<Long> numbers, int numberOfThreads) {
         int listLength = numbers.size();
         int partOfList;
+        int divCounter = 0;
         if (listLength > numberOfThreads) {
             partOfList = listLength / numberOfThreads;
         } else {
             partOfList = 1;
             numberOfThreads = listLength;
         }
+
+        if (listLength % numberOfThreads != 0) {
+            divCounter = listLength % numberOfThreads;
+        }
         ThreadFinder[] threads = new ThreadFinder[numberOfThreads];
         for (int i = 0; i < numberOfThreads; i++) {
             int fromIndex = partOfList * i;
-            int toIndex = partOfList * (i + 1);
+            int toIndex;
+            if (divCounter > 0) {
+                toIndex = partOfList * (i + 1) + 1;
+                divCounter --;
+            } else {
+                toIndex = partOfList * (i + 1);
+            }
             threads[i] = new ThreadFinder(numbers.subList(fromIndex, toIndex));
-            threads[i].start();
-
         }
-        checkThreads(threads);
-        return notPrimeFlag;
+        return threads;
     }
 
     /**

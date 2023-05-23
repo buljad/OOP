@@ -1,7 +1,10 @@
 package ru.nsu.izhuravskii;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -199,5 +202,17 @@ public class ThreadModeTests {
         boolean expectedValue = false;
         boolean actualValue = test.multiThreadFinder(numbers, 8);
         Assertions.assertEquals(expectedValue, actualValue);
+    }
+
+    @Test
+    public void threadsDivisionTest() {
+        List<Long> numbers = Arrays.asList(2L, 3L, 4L, 5L, 6L, 7L, 8L, 9L);
+        int numberOfThreads = 6;
+        ThreadMode act = new ThreadMode();
+        ThreadMode.ThreadFinder[] actualValue = act.threadDivision(numbers, numberOfThreads);
+        List<Integer> exp = List.of(2, 2, 1, 1, 1, 1);
+        List<Integer> actual = Arrays.stream(actualValue).map(t -> t.getNumbers().size()).collect(Collectors.toList());
+        Assertions.assertEquals(exp, actual);
+
     }
 }
