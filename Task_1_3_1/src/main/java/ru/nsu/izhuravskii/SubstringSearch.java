@@ -1,27 +1,22 @@
 package ru.nsu.izhuravskii;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.Reader;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
-
-/*public class SubstringSearch {
-    public void InputHandler() throws IOException {
-        String[] subString;
-        FileInputStream fileInputStream=new FileInputStream("C:\\Users\\Lenovo\\Desktop\\Programs\\OOP\\Task_1_3_1\\src\\main\\java\\ru\\nsu\\izhuravskii\\input.txt");
-        int inputSymbol;
-        while((inputSymbol = fileInputStream.read()) != -1) {
-            (char)inputSymbol
-        }
-        }
-}
-*/
 
 public class SubstringSearch {
     Reader input;
     String substring;
+    List<Integer> matchesList;
+
+    public SubstringSearch(BufferedReader input, String substring) throws IOException {
+        if (substring == null || substring.equals("")) {
+            throw new IllegalArgumentException("Substring is empty");
+        }
+        this.input = input;
+        this.substring = substring;
+        matchesList = KMPSearch(input, substring);
+    }
 
 
     public static int[] findPrefixArray(String substring) {
@@ -45,7 +40,7 @@ public class SubstringSearch {
         }
         return prefixArray;
     }
-    public static List<Integer> SubstringSearch(Reader file, String substring)
+    public static List<Integer> KMPSearch(Reader input, String substring)
             throws IOException {
         int currentId = 0;
         int idInSubstring = 0;
@@ -54,7 +49,7 @@ public class SubstringSearch {
         List<Integer> matchesId = new ArrayList<>();
         int[] prefixLen = findPrefixArray(substring);
         int c;
-        while ((c = file.read()) != -1) {
+        while ((c = input.read()) != -1) {
             char currentLetter = (char) c;
             if (substring.charAt(idInSubstring
             ) == currentLetter) {
