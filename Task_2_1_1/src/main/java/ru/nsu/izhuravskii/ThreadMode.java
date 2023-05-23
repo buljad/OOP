@@ -1,9 +1,8 @@
 package ru.nsu.izhuravskii;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.util.Arrays;
 import java.util.List;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * A variant of searching a non-prime number in the list using threads.
@@ -61,6 +60,7 @@ public class ThreadMode {
 
     /**
      * Method for dividing parts of numbers array to threads.
+     *
      * @param numbers - list of numbers.
      * @param numberOfThreads - quantity of threads.
      * @return - returns list of threads.
