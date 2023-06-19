@@ -15,20 +15,21 @@ public class Cook implements Runnable {
     }
     @Override
     public void run() {
-        try {
-            Order order = Pizzeria.takeOrder();
-            isCooking = true;
-            order.setStatus(Order.Status.COOKING);
-            System.out.println(order);
-            TimeUnit.SECONDS.sleep(10 / skill);
-            order.setStatus(Order.Status.COOKED);
-            isCooking = false;
-            System.out.println(order);
-            Pizzeria.stockOrder(order);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
+        while(!Thread.currentThread().isInterrupted()) {
+            try {
+                Order order = Pizzeria.takeOrder();
+                isCooking = true;
+                order.setStatus(Order.Status.COOKING);
+                System.out.println(order + "by" + name);
+                TimeUnit.SECONDS.sleep(10 / skill);
+                order.setStatus(Order.Status.COOKED);
+                isCooking = false;
+                System.out.println(order + "by" + name);
+                Pizzeria.stockOrder(order);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
         }
-
 
     }
 }

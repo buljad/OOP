@@ -1,44 +1,79 @@
 package ru.nsu.izhuravskii;
 
+import static java.lang.Math.ceil;
+import static java.lang.Math.min;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Queue;
 import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.concurrent.LinkedBlockingQueue;
 
 public class Pizzeria {
+    private static volatile BlockingQueue<Order> orderQueue = new LinkedBlockingQueue<>();
+    private static volatile BlockingQueue<Order> stockQueue;
     private List<Cook> cooks;
     private List<Deliver> delivers;
-    private static final BlockingQueue<Order> orders = new LinkedBlockingQueue<>();
-    private static BlockingQueue<Order> stock;
-    public Pizzeria() {
-        BlockingQueue<String> stock = new LinkedBlockingQueue<>(123);
+    static int totalBagCapacity = 0;
+    private final ExecutorService cooksPool;
+    private final ExecutorService deliversPool;
+
+    public Pizzeria(String file) {
+        JsonData jsonData = new JsonData(file);
+        stockQueue = new LinkedBlockingQueue<>(jsonData.getStockCapacity());
+        this.cooks = jsonData.getCooks();
+        this.delivers = jsonData.getDelivers();
+        totalBagCapacity = delivers.stream().mapToInt(Deliver::getCapacity).sum();
+        cooksPool = Executors.newFixedThreadPool(cooks.size());
+        deliversPool = Executors.newFixedThreadPool(delivers.size());
     }
-    public void addOrder(Order order) {
-        orders.add(order);
+
+    public void openPizzeria() {
+        cooks.forEach(cooksPool::submit);
+        delivers.forEach(deliversPool::submit);
     }
 
     public static Order takeOrder() throws InterruptedException {
-        return(orders.take());
+        return orderQueue.take();
     }
 
+    public void addOrder(Order order) throws InterruptedException {
+        orderQueue.put(order);
+        order.setStatus(Order.Status.ORDERED);
+    }
+
+
     public static void stockOrder(Order order) throws InterruptedException {
-        stock.put(order);
+        stockQueue.put(order);
         order.setStatus(Order.Status.IN_STOCK);
         System.out.println(order);
     }
 
-    public static Order takeFromStock() throws InterruptedException {
-        return(stock.take());
+    public static List<Order> takeFromStock(int capacity) throws InterruptedException {
+        List<Order> orders = new ArrayList<>();
+        int count = (int) min(ceil(
+                ((double) stockQueue.size() / totalBagCapacity) * capacity + 1), capacity);
+        for (int i = 0; i < count; i++) {
+            orders.add(stockQueue.take());
+        }
+        return orders;
     }
-    /*
-    private List<Cook> hireCooks() {
-
-        return null;
+    public void closePizzeria() throws InterruptedException {
+        while (true) {
+            if (orderQueue.isEmpty() && cooks.stream().noneMatch(Cook::isCooking)) {
+                cooksPool.shutdown();
+                System.out.println("Cooks is going home");
+                break;
+            }
+        }
+        while (true) {
+            if (stockQueue.isEmpty() && delivers.stream().noneMatch(Deliver::isOnTheWay)) {
+                deliversPool.shutdown();
+                System.out.println("Deliverymen is going home");
+                break;
+            }
+        }
     }
-
-    private List<Deliver> hireDelivers() {
-
-        return null;
-    }
-    */
 }
