@@ -64,14 +64,14 @@ public class Pizzeria {
         while (true) {
             if (orderQueue.isEmpty() && cooks.stream().noneMatch(Cook::isCooking)) {
                 cooksPool.shutdown();
-                System.out.println("Cooks is going home");
+                System.out.println("Cooks are going home");
                 break;
             }
         }
         while (true) {
             if (stockQueue.isEmpty() && delivers.stream().noneMatch(Deliver::isOnTheWay)) {
                 deliversPool.shutdown();
-                System.out.println("Deliverymen is going home");
+                System.out.println("Delivers are going home");
                 break;
             }
         }
