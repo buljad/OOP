@@ -51,8 +51,7 @@ public class Pizzeria {
      * to begin working.
      *
      * @return - first order from the orders queue.
-     * @throws InterruptedException - if some interruption happens
-     * (for example closing of pizzeria)
+     * @throws InterruptedException - in case of program interruption.
      */
     public static Order takeOrder() throws InterruptedException {
         synchronized (orderQueue) {
@@ -85,10 +84,10 @@ public class Pizzeria {
      */
     public static void stockOrder(Order order) throws InterruptedException {
         synchronized (stockQueue) {
-                stockQueue.add(order);
-                stockQueue.notifyAll();
-                order.setStatus(Order.Status.IN_STOCK);
-                System.out.println(order);
+            stockQueue.add(order);
+            stockQueue.notifyAll();
+            order.setStatus(Order.Status.IN_STOCK);
+            System.out.println(order);
         }
     }
 
@@ -114,8 +113,9 @@ public class Pizzeria {
             return orders;
         }
     }
-    public void closePizzeria(){
-            cooksPool.shutdownNow();
-            deliversPool.shutdownNow();
+
+    public void closePizzeria() {
+        cooksPool.shutdownNow();
+        deliversPool.shutdownNow();
     }
 }

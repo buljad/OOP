@@ -2,18 +2,22 @@ package ru.nsu.izhuravskii;
 
 import java.util.concurrent.TimeUnit;
 
+/**
+ * Module describing work of cooks.
+ */
 public class Cook implements Runnable {
     String name;
     int skill;
+    boolean isCooking = false;
+
     public Cook(String name, int skill) {
         this.name = name;
         this.skill = skill;
     }
-    boolean isCooking = false;
 
     @Override
     public void run() {
-        while(!Thread.currentThread().isInterrupted()) {
+        while (!Thread.currentThread().isInterrupted()) {
             try {
                 Order order = Pizzeria.takeOrder();
                 isCooking = true;
@@ -28,6 +32,5 @@ public class Cook implements Runnable {
                 throw new RuntimeException(e);
             }
         }
-
     }
 }

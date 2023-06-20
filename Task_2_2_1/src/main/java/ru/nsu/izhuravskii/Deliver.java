@@ -4,11 +4,11 @@ import java.util.List;
 import java.util.Queue;
 import java.util.concurrent.TimeUnit;
 
-public class Deliver implements Runnable{
-    Queue<String> currentOrders;
+/**
+ * Class that describes the work of delivers.
+ */
+public class Deliver implements Runnable {
     String name;
-    int deliverySkill;
-
     boolean isOnTheWay = false;
     int capacity;
 
@@ -16,13 +16,11 @@ public class Deliver implements Runnable{
         return capacity;
     }
 
-    public boolean isOnTheWay() {
-        return isOnTheWay;
-    }
     public Deliver(String name, int capacity) {
         this.name = name;
         this.capacity = capacity;
     }
+
     @Override
     public void run() {
         //Order order = null;
