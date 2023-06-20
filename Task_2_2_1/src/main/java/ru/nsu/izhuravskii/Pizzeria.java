@@ -2,8 +2,6 @@ package ru.nsu.izhuravskii;
 
 import static java.lang.Math.ceil;
 import static java.lang.Math.min;
-
-
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Deque;
