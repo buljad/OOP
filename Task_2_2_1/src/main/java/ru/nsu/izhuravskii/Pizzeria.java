@@ -12,8 +12,8 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.LinkedBlockingQueue;
 
 public class Pizzeria {
-    private static volatile BlockingQueue<Order> orderQueue = new LinkedBlockingQueue<>();
-    private static volatile BlockingQueue<Order> stockQueue;
+    private static BlockingQueue<Order> orderQueue = new LinkedBlockingQueue<>();
+    private static BlockingQueue<Order> stockQueue;
     private List<Cook> cooks;
     private List<Deliver> delivers;
     static int totalBagCapacity = 0;
