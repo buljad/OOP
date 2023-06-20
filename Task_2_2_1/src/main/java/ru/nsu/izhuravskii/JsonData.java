@@ -27,6 +27,11 @@ public class JsonData {
         return delivers;
     }
 
+    /**
+     * Exact method of reading info from json.
+     *
+     * @param file - json file to read.
+     */
     public JsonData(String file) {
         Gson gson = new Gson();
         JsonData jsonData;
