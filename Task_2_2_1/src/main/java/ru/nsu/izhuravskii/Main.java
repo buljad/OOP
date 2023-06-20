@@ -5,10 +5,17 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 /**
- * A launch of my pizzeria.
+ * Realization of my pizzeria.
  */
-public class Main{
-    public static void main(String[] args){
+public class Main {
+    /**
+     * A launch of my pizzeria.
+     * It gets data about cooks and delivers
+     * from pizzeriaData.json
+     * @param args - main module's parameters
+     *             to read input from terminal
+     */
+    public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         Pizzeria pizzeria = new Pizzeria("pizzeriaData.json");
         pizzeria.openPizzeria();
@@ -24,7 +31,7 @@ public class Main{
                 cancelFlag[0] = true;
             }
         }, 10000);
-        while(!cancelFlag[0]) {
+        while (!cancelFlag[0]) {
             if (scanner.hasNextInt()) {
                 int size = scanner.nextInt();
                 if (size == -1) {

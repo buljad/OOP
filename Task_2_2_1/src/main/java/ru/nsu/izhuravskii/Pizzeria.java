@@ -3,7 +3,11 @@ package ru.nsu.izhuravskii;
 import static java.lang.Math.ceil;
 import static java.lang.Math.min;
 
-import java.util.*;
+
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.Deque;
+import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -41,7 +45,7 @@ public class Pizzeria {
     }
 
     public void addOrder(Order order) throws InterruptedException {
-        synchronized(orderQueue) {
+        synchronized (orderQueue) {
             orderQueue.add(order);
             order.setStatus(Order.Status.ORDERED);
             orderQueue.notifyAll();
