@@ -18,6 +18,7 @@ public class Order {
         DELIVERING,
         DELIVERED
     }
+
     Status status;
 
     private static int id_counter = 0;

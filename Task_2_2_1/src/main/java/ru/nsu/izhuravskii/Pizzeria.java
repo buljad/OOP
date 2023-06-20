@@ -2,6 +2,7 @@ package ru.nsu.izhuravskii;
 
 import static java.lang.Math.ceil;
 import static java.lang.Math.min;
+
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Deque;
@@ -9,8 +10,11 @@ import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+/**
+ * This module describe how exactly pizzeria works.
+ */
 public class Pizzeria {
-    private final static Deque<Order> orderQueue = new ArrayDeque<>();
+    private static final  Deque<Order> orderQueue = new ArrayDeque<>();
     private static Deque<Order> stockQueue;
     private final List<Cook> cooks;
     private final List<Deliver> delivers;
@@ -18,6 +22,12 @@ public class Pizzeria {
     private final ExecutorService cooksPool;
     private final ExecutorService deliversPool;
 
+    /**
+     * Initialization of pizzeria.
+     *
+     * @param file - json file from with info
+     *             about cooks and delivers.
+     */
     public Pizzeria(String file) {
         JsonData jsonData = new JsonData(file);
         stockQueue = new ArrayDeque<>(jsonData.getStockCapacity());
@@ -28,11 +38,22 @@ public class Pizzeria {
         deliversPool = Executors.newFixedThreadPool(delivers.size());
     }
 
+    /**
+     * This module starts pools of cooks and delivers threads.
+     */
     public void openPizzeria() {
         cooks.forEach(cooksPool::submit);
         delivers.forEach(deliversPool::submit);
     }
 
+    /**
+     * Module describes how cook can take an order
+     * to begin working.
+     *
+     * @return - first order from the orders queue.
+     * @throws InterruptedException - if some interruption happens
+     * (for example closing of pizzeria)
+     */
     public static Order takeOrder() throws InterruptedException {
         synchronized (orderQueue) {
             while (orderQueue.isEmpty()) {
@@ -42,6 +63,12 @@ public class Pizzeria {
         }
     }
 
+    /**
+     * Module of making a new order.
+     *
+     * @param order - an order to make.
+     * @throws InterruptedException - in case of program interruption.
+     */
     public void addOrder(Order order) throws InterruptedException {
         synchronized (orderQueue) {
             orderQueue.add(order);
@@ -50,7 +77,12 @@ public class Pizzeria {
         }
     }
 
-
+    /**
+     * Module for moving a cooked order to stock.
+     *
+     * @param order - order to stock.
+     * @throws InterruptedException - in case of program interruption.
+     */
     public static void stockOrder(Order order) throws InterruptedException {
         synchronized (stockQueue) {
                 stockQueue.add(order);
@@ -60,9 +92,17 @@ public class Pizzeria {
         }
     }
 
+    /**
+     * This module shows how deliver can take some amount
+     * of orders to deliver.
+     *
+     * @param capacity - delivers' capacity
+     * @return - returns amount of orders
+     * @throws InterruptedException - in case of program interruption
+     */
     public static List<Order> takeFromStock(int capacity) throws InterruptedException {
         synchronized (stockQueue) {
-            while(stockQueue.isEmpty()) {
+            while (stockQueue.isEmpty()) {
                 stockQueue.wait();
             }
             List<Order> orders = new ArrayList<>();

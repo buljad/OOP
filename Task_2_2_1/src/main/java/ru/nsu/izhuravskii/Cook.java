@@ -10,9 +10,7 @@ public class Cook implements Runnable {
         this.skill = skill;
     }
     boolean isCooking = false;
-    public boolean isCooking() {
-        return isCooking;
-    }
+
     @Override
     public void run() {
         while(!Thread.currentThread().isInterrupted()) {

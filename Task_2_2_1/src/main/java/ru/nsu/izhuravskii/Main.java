@@ -12,6 +12,7 @@ public class Main {
      * A launch of my pizzeria.
      * It gets data about cooks and delivers
      * from pizzeriaData.json
+     *
      * @param args - main module's parameters
      *             to read input from terminal
      */
