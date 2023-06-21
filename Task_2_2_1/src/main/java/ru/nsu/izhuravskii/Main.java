@@ -2,7 +2,6 @@ package ru.nsu.izhuravskii;
 
 import java.util.Scanner;
 import java.util.Timer;
-import java.util.TimerTask;
 
 /**
  * Realization of my pizzeria.
@@ -31,7 +30,7 @@ public class Main {
                 System.out.println("Pizzeria is closed");
                 cancelFlag[0] = true;
             }
-        }, 10000);
+        }, 30000);
         while (!cancelFlag[0]) {
             if (scanner.hasNextInt()) {
                 int size = scanner.nextInt();
